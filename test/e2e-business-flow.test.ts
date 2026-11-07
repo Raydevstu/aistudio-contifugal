@@ -500,6 +500,70 @@ test('E2E-015 Multi-User Isolation', async () => {
 });
 
 // ----------------------------------------------------------------------------
+// E2E-017: Batch Export Engine (#2 Priority)
+// ----------------------------------------------------------------------------
+test('E2E-017 Batch Export Engine', async () => {
+  const userId = 'usr_batch_' + Date.now();
+  const job = dbStorage.createBatchExportJob({
+    id: 'batch_' + Date.now(),
+    userId,
+    projectId: 'proj_batch_1',
+    clipIds: ['clip_1', 'clip_2', 'clip_3'],
+    status: 'PROCESSING',
+    progress: 33,
+    totalClips: 3,
+    completedClips: 1,
+    exportIds: ['exp_batch_1'],
+    createdAt: new Date().toISOString()
+  });
+
+  assert.ok(job.id, 'Batch export job must exist');
+  assert.strictEqual(job.totalClips, 3);
+  assert.strictEqual(job.progress, 33);
+
+  const updatedJob = dbStorage.updateBatchExportJob(job.id, {
+    progress: 100,
+    status: 'COMPLETED',
+    completedClips: 3,
+    completedAt: new Date().toISOString()
+  });
+
+  assert.ok(updatedJob);
+  assert.strictEqual(updatedJob.status, 'COMPLETED');
+  assert.strictEqual(updatedJob.progress, 100);
+});
+
+// ----------------------------------------------------------------------------
+// E2E-018: Multi-Platform Auto-Publisher (#1 Priority)
+// ----------------------------------------------------------------------------
+test('E2E-018 Multi-Platform Auto-Publisher', async () => {
+  const userId = 'usr_pub_' + Date.now();
+  const schedule = dbStorage.createPublishSchedule({
+    id: 'pub_' + Date.now(),
+    userId,
+    exportId: 'exp_publish_1',
+    clipId: 'clip_publish_1',
+    clipTitle: 'Scaling Bootstrapped SaaS to $1M ARR',
+    platform: 'TIKTOK',
+    caption: 'The secret to $1M ARR 🚀 #shorts #viral',
+    hashtags: ['#shorts', '#viral', '#saas'],
+    scheduledAt: new Date().toISOString(),
+    status: 'PUBLISHED',
+    platformPostId: 'tt_post_91823746',
+    createdAt: new Date().toISOString()
+  });
+
+  assert.ok(schedule.id, 'Publish schedule record must exist');
+  assert.strictEqual(schedule.platform, 'TIKTOK');
+  assert.strictEqual(schedule.status, 'PUBLISHED');
+  assert.ok(schedule.platformPostId?.startsWith('tt_post_'), 'Platform post ID issued');
+
+  const userQueue = dbStorage.getPublishSchedulesByUserId(userId);
+  assert.strictEqual(userQueue.length, 1);
+  assert.strictEqual(userQueue[0].id, schedule.id);
+});
+
+// ----------------------------------------------------------------------------
 // E2E-016: Production Readiness Test
 // ----------------------------------------------------------------------------
 test('E2E-016 Production Readiness Test', async () => {

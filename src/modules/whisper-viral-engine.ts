@@ -125,12 +125,15 @@ export async function runWhisperTranscriptionPipeline(source: VideoProjectSource
     const geminiKey = process.env.GEMINI_API_KEY;
     if (geminiKey && audioExtracted && fs.existsSync(tempWavPath)) {
       try {
-        const ai = new GoogleGenAI({ apiKey: geminiKey });
+        const ai = new GoogleGenAI({ 
+          apiKey: geminiKey,
+          httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
+        });
         const audioBuffer = fs.readFileSync(tempWavPath);
         const base64Audio = audioBuffer.toString('base64');
 
         const response = await ai.models.generateContent({
-          model: 'gemini-2.5-flash',
+          model: 'gemini-3.8-flash',
           contents: [
             {
               role: 'user',
@@ -258,7 +261,10 @@ export async function detectViralMomentsAndScore(
   // 1. If Gemini API key is available, execute real AI reasoning
   if (apiKey) {
     try {
-      const ai = new GoogleGenAI({ apiKey });
+      const ai = new GoogleGenAI({ 
+        apiKey,
+        httpOptions: { headers: { 'User-Agent': 'aistudio-build' } }
+      });
       const transcriptFormatted = transcript
         .map(s => `[${s.start.toFixed(1)}s - ${s.end.toFixed(1)}s]: ${s.text}`)
         .join('\n');
@@ -292,7 +298,7 @@ Respond STRICTLY with JSON matching this structure:
 }`;
 
       const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash',
+        model: 'gemini-3.8-flash',
         contents: prompt,
       });
 

@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { 
   X, Heart, MessageCircle, Bookmark, Share2, Music, Download, 
   Copy, Check, Volume2, VolumeX, Play, Pause, TrendingUp, Sparkles,
-  Smartphone, Send, Smile, MoreVertical
+  Smartphone, Send, Smile, MoreVertical, AlertCircle
 } from 'lucide-react';
+import { formatVideoUrl } from '../utils/videoUrl';
 
 interface SocialMediaPreviewModalProps {
   isOpen: boolean;
@@ -42,6 +43,7 @@ export const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = (
   const [showComments, setShowComments] = useState(false);
   const [commentInput, setCommentInput] = useState('');
   const [copiedCaption, setCopiedCaption] = useState(false);
+  const [activeWordIdx, setActiveWordIdx] = useState(0);
   const [commentsList, setCommentsList] = useState([
     { id: 1, user: 'sarah_growth', text: 'This hook caught me immediately. Replaying this 3 times 🔥', likes: 241, time: '2h' },
     { id: 2, user: 'david_builds', text: 'The subtitle timing here is crazy smooth. What app made this?', likes: 98, time: '1h' },
@@ -49,16 +51,32 @@ export const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = (
   ]);
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const activeVideoSrc = formatVideoUrl(videoUrl);
+  const [hasVideoError, setHasVideoError] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
+      console.log('[SocialMediaPreviewModal Trace] Modal opened. Raw videoUrl prop:', videoUrl, '| Formatted activeVideoSrc:', activeVideoSrc);
+      setHasVideoError(false);
       setIsPlaying(true);
       if (videoRef.current) {
         videoRef.current.currentTime = 0;
-        videoRef.current.play().catch(() => {});
+        videoRef.current.play().catch((err) => {
+          console.warn('[SocialMediaPreviewModal Trace] Play catch:', err);
+        });
       }
     }
-  }, [isOpen, videoUrl]);
+  }, [isOpen, activeVideoSrc, videoUrl]);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+    const words = clipTitle.split(' ').filter(Boolean);
+    if (words.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveWordIdx(prev => (prev + 1) % words.length);
+    }, 450);
+    return () => clearInterval(interval);
+  }, [isPlaying, clipTitle]);
 
   if (!isOpen) return null;
 
@@ -202,23 +220,50 @@ export const SocialMediaPreviewModal: React.FC<SocialMediaPreviewModalProps> = (
                 className="absolute inset-0 cursor-pointer overflow-hidden flex items-center justify-center bg-slate-950"
                 onClick={togglePlay}
               >
-                {videoUrl ? (
-                  <video
-                    ref={videoRef}
-                    src={videoUrl}
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted={isMuted}
-                    playsInline
-                  />
-                ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-indigo-950 via-slate-950 to-slate-900">
-                    <Sparkles className="w-12 h-12 text-emerald-400 mb-3 animate-pulse" />
-                    <p className="text-sm font-semibold text-white mb-1">{clipTitle}</p>
-                    <p className="text-xs text-slate-400">1080x1920 9:16 Video Canvas</p>
+                <video
+                  ref={videoRef}
+                  src={activeVideoSrc}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted={isMuted}
+                  playsInline
+                  onError={(e) => {
+                    console.error('[SocialMediaPreviewModal Error] Video element failed to load source:', activeVideoSrc, e);
+                    setHasVideoError(true);
+                  }}
+                />
+
+                {hasVideoError && (
+                  <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-4 text-center z-30">
+                    <AlertCircle className="w-10 h-10 text-amber-400 mb-2 animate-bounce" />
+                    <p className="text-xs font-bold text-white">Video Source Error</p>
+                    <p className="text-[10px] text-amber-300 font-mono mt-1 break-all px-2 py-1 bg-slate-900 rounded border border-slate-800 max-w-full">
+                      {activeVideoSrc}
+                    </p>
+                    <p className="text-[11px] text-slate-400 mt-2">File could not be found or played by browser.</p>
                   </div>
                 )}
+
+                {/* Dynamic Word Highlight Subtitle Box Overlay */}
+                <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 z-20 pointer-events-none text-center">
+                  <div className="inline-block px-3.5 py-2.5 rounded-2xl bg-black/80 backdrop-blur-md border border-slate-700/70 shadow-2xl max-w-full">
+                    <div className="text-sm font-black tracking-wide flex flex-wrap justify-center gap-1.5">
+                      {clipTitle.split(' ').map((word, idx) => (
+                        <span 
+                          key={idx}
+                          className={`transition-all duration-200 ${
+                            idx === activeWordIdx 
+                              ? 'text-yellow-300 scale-110 drop-shadow-[0_0_8px_rgba(253,224,71,0.9)]' 
+                              : 'text-white/90'
+                          }`}
+                        >
+                          {word}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
                 {/* Subtle Play / Pause Indicator */}
                 {!isPlaying && (

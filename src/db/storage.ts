@@ -80,10 +80,43 @@ export interface ExportRecord {
   status: 'READY' | 'PROCESSING' | 'FAILED';
 }
 
+export interface BatchExportJob {
+  id: string;
+  userId: string;
+  projectId: string;
+  clipIds: string[];
+  status: 'QUEUED' | 'PROCESSING' | 'COMPLETED' | 'FAILED';
+  progress: number; // 0 to 100
+  totalClips: number;
+  completedClips: number;
+  exportIds: string[];
+  createdAt: string;
+  completedAt?: string;
+  error?: string;
+}
+
+export interface PublishScheduleRecord {
+  id: string;
+  userId: string;
+  exportId: string;
+  clipId: string;
+  clipTitle: string;
+  platform: 'TIKTOK' | 'INSTAGRAM_REELS' | 'YOUTUBE_SHORTS' | 'LINKEDIN';
+  caption: string;
+  hashtags: string[];
+  scheduledAt: string;
+  status: 'SCHEDULED' | 'PUBLISHING' | 'PUBLISHED' | 'FAILED';
+  platformPostId?: string;
+  createdAt: string;
+  error?: string;
+}
+
 export interface DatabaseSchema {
   users: User[];
   projects: Project[];
   exports: ExportRecord[];
+  batchExportJobs?: BatchExportJob[];
+  publishSchedules?: PublishScheduleRecord[];
 }
 
 const DB_DIR = path.resolve('data');
@@ -93,7 +126,9 @@ export class DatabaseManager {
   private data: DatabaseSchema = {
     users: [],
     projects: [],
-    exports: []
+    exports: [],
+    batchExportJobs: [],
+    publishSchedules: []
   };
 
   constructor() {
@@ -212,6 +247,54 @@ export class DatabaseManager {
 
   getExportsByUserId(userId: string): ExportRecord[] {
     return this.data.exports.filter(e => e.userId === userId);
+  }
+
+  // --- Batch Export Jobs ---
+  createBatchExportJob(job: BatchExportJob): BatchExportJob {
+    if (!this.data.batchExportJobs) this.data.batchExportJobs = [];
+    this.data.batchExportJobs.unshift(job);
+    this.save();
+    return job;
+  }
+
+  getBatchExportJobById(id: string): BatchExportJob | undefined {
+    return (this.data.batchExportJobs || []).find(j => j.id === id);
+  }
+
+  getBatchExportJobsByUserId(userId: string): BatchExportJob[] {
+    return (this.data.batchExportJobs || []).filter(j => j.userId === userId);
+  }
+
+  updateBatchExportJob(id: string, updates: Partial<BatchExportJob>): BatchExportJob | undefined {
+    const job = this.getBatchExportJobById(id);
+    if (!job) return undefined;
+    Object.assign(job, updates);
+    this.save();
+    return job;
+  }
+
+  // --- Publish Schedules ---
+  createPublishSchedule(schedule: PublishScheduleRecord): PublishScheduleRecord {
+    if (!this.data.publishSchedules) this.data.publishSchedules = [];
+    this.data.publishSchedules.unshift(schedule);
+    this.save();
+    return schedule;
+  }
+
+  getPublishSchedulesByUserId(userId: string): PublishScheduleRecord[] {
+    return (this.data.publishSchedules || []).filter(s => s.userId === userId);
+  }
+
+  getPublishScheduleById(id: string): PublishScheduleRecord | undefined {
+    return (this.data.publishSchedules || []).find(s => s.id === id);
+  }
+
+  updatePublishSchedule(id: string, updates: Partial<PublishScheduleRecord>): PublishScheduleRecord | undefined {
+    const sched = this.getPublishScheduleById(id);
+    if (!sched) return undefined;
+    Object.assign(sched, updates);
+    this.save();
+    return sched;
   }
 
   // Debug/Telemetry

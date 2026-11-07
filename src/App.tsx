@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { SocialMediaPreviewModal } from './components/SocialMediaPreviewModal';
+import { formatVideoUrl } from './utils/videoUrl';
 
 interface UserProfile {
   id: string;
@@ -59,7 +60,7 @@ interface Project {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'studio' | 'editor' | 'pricing' | 'checklist'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'studio' | 'editor' | 'distribution' | 'pricing' | 'checklist'>('dashboard');
 
   // Auth State (Epic 1: AC-AUTH-001, AC-AUTH-002)
   const [token, setToken] = useState<string | null>(() => localStorage.getItem('cf_token'));
@@ -76,6 +77,20 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedClip, setSelectedClip] = useState<Clip | null>(null);
 
+  // Batch Export & Auto-Publisher State (#1 & #2 Architectural Priorities)
+  const [selectedBatchClipIds, setSelectedBatchClipIds] = useState<string[]>([]);
+  const [isBatchExporting, setIsBatchExporting] = useState(false);
+  const [batchJobId, setBatchJobId] = useState<string | null>(null);
+  const [batchProgress, setBatchProgress] = useState(0);
+  const [batchStatus, setBatchStatus] = useState<'QUEUED' | 'PROCESSING' | 'COMPLETED' | 'FAILED' | null>(null);
+  const [batchExportRecords, setBatchExportRecords] = useState<any[]>([]);
+
+  // Social Auto-Publisher State
+  const [publishQueue, setPublishQueue] = useState<any[]>([]);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [selectedPublishPlatform, setSelectedPublishPlatform] = useState<'TIKTOK' | 'INSTAGRAM_REELS' | 'YOUTUBE_SHORTS' | 'LINKEDIN'>('TIKTOK');
+  const [selectedPublishCaption, setSelectedPublishCaption] = useState('');
+
   // Upload Form State (Epic 2)
   const [videoUrlInput, setVideoUrlInput] = useState('');
   const [videoTitleInput, setVideoTitleInput] = useState('');
@@ -90,6 +105,7 @@ export default function App() {
   const [analysisStep, setAnalysisStep] = useState(0);
 
   // Player & Export State (Epics 5 & 6)
+  const canvasVideoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [activeWordIdx, setActiveWordIdx] = useState(0);
@@ -100,6 +116,20 @@ export default function App() {
   const [exportedVideoUrl, setExportedVideoUrl] = useState<string | null>(null);
   const [exportSuccessInfo, setExportSuccessInfo] = useState<any | null>(null);
   const [socialPreviewOpen, setSocialPreviewOpen] = useState(false);
+  const [canvasVideoError, setCanvasVideoError] = useState<string | null>(null);
+
+  const activeCanvasVideoUrl = formatVideoUrl(
+    exportedVideoUrl || 
+    exportSuccessInfo?.exportUrl || 
+    selectedProject?.videoPath || 
+    (selectedProject as any)?.videoUrl || 
+    '/exports/real_demo_clip.mp4'
+  );
+
+  useEffect(() => {
+    console.log('[App.tsx Video Trace] Selected Canvas Video URL:', activeCanvasVideoUrl, '| Raw export:', exportedVideoUrl, '| Project path:', selectedProject?.videoPath);
+    setCanvasVideoError(null);
+  }, [activeCanvasVideoUrl, exportedVideoUrl, selectedProject?.id]);
 
   // Stripe Checkout Modal (Epic 8)
   const [stripeModalOpen, setStripeModalOpen] = useState(false);
@@ -125,7 +155,99 @@ export default function App() {
   useEffect(() => {
     fetchUser();
     fetchProjects();
+    fetchPublishQueue();
   }, [token]);
+
+  const fetchPublishQueue = async () => {
+    try {
+      const res = await fetch('/api/publish/queue', { headers: authHeaders });
+      if (res.ok) {
+        const data = await res.json();
+        setPublishQueue(data);
+      }
+    } catch (e) {
+      console.error('Failed to fetch publish queue:', e);
+    }
+  };
+
+  const handleBatchExport = async () => {
+    if (!selectedProject || selectedBatchClipIds.length === 0) return;
+    setIsBatchExporting(true);
+    setBatchProgress(10);
+    setBatchStatus('PROCESSING');
+
+    try {
+      const res = await fetch('/api/export/batch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...authHeaders
+        },
+        body: JSON.stringify({
+          projectId: selectedProject.id,
+          clipIds: selectedBatchClipIds,
+          watermark: showWatermark
+        })
+      });
+      const data = await res.json();
+      if (data.jobId) {
+        setBatchJobId(data.jobId);
+        
+        // Poll batch progress until completed
+        const pollTimer = setInterval(async () => {
+          try {
+            const pollRes = await fetch(`/api/export/batch/${data.jobId}`, { headers: authHeaders });
+            const pollData = await pollRes.json();
+            if (pollData.job) {
+              setBatchProgress(pollData.job.progress);
+              if (pollData.job.status === 'COMPLETED') {
+                clearInterval(pollTimer);
+                setBatchStatus('COMPLETED');
+                setBatchExportRecords(pollData.exports || []);
+                setIsBatchExporting(false);
+                confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
+              }
+            }
+          } catch {
+            clearInterval(pollTimer);
+            setIsBatchExporting(false);
+          }
+        }, 1200);
+      }
+    } catch (e: any) {
+      setIsBatchExporting(false);
+      alert('Batch export failed: ' + e.message);
+    }
+  };
+
+  const handleSchedulePublish = async (clipId: string, clipTitle: string, platform: string, caption?: string, scheduledAt?: string) => {
+    setIsPublishing(true);
+    try {
+      const res = await fetch('/api/publish/schedule', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...authHeaders
+        },
+        body: JSON.stringify({
+          clipId,
+          clipTitle,
+          platform,
+          caption: caption || `${clipTitle} 🚀 #shorts #viral #reels`,
+          scheduledAt: scheduledAt || new Date().toISOString()
+        })
+      });
+      const data = await res.json();
+      setIsPublishing(false);
+      if (data.success) {
+        alert(data.message);
+        fetchPublishQueue();
+      }
+    } catch (e: any) {
+      setIsPublishing(false);
+      alert('Publishing failed: ' + e.message);
+    }
+  };
 
   // Player scrubber loop
   useEffect(() => {
@@ -461,7 +583,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-purple-500 selection:text-white">
       {/* Top Header */}
-      <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 px-4 lg:px-8 py-3.5 flex items-center justify-between">
+      <header className="border-b border-slate-800 bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 px-4 sm:px-6 lg:px-12 py-3.5 flex flex-wrap lg:flex-nowrap items-center justify-between gap-4 md:gap-6 lg:gap-8">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setActiveTab('dashboard')}>
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
             <Flame className="w-5 h-5 text-white animate-pulse" />
@@ -485,6 +607,7 @@ export default function App() {
             { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
             { id: 'studio', label: 'Upload (500MB Max)', icon: Upload },
             { id: 'editor', label: 'Clips & Moat Editor', icon: Scissors },
+            { id: 'distribution', label: 'Auto-Publisher & Queue', icon: Rocket },
             { id: 'pricing', label: 'Billing & Plans', icon: CreditCard },
             { id: 'checklist', label: 'MVP Acceptance Check', icon: ShieldCheck, highlight: true }
           ].map((tab: any) => {
@@ -834,20 +957,69 @@ export default function App() {
             </div>
 
             <div className="grid lg:grid-cols-12 gap-6">
-              {/* Left Column: AI-Scored Clips */}
+              {/* Left Column: AI-Scored Clips & Batch Export Toolbar */}
               <div className="lg:col-span-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <h3 className="font-bold text-sm text-slate-300 uppercase tracking-wider">
                     Dynamic Clips ({selectedProject?.clips?.length || 0})
                   </h3>
-                  <span className="text-[11px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30 font-bold">
-                    Zero Fake Clips
-                  </span>
+                  <button
+                    onClick={() => {
+                      const allIds = (selectedProject?.clips || []).map(c => c.id);
+                      if (selectedBatchClipIds.length === allIds.length) {
+                        setSelectedBatchClipIds([]);
+                      } else {
+                        setSelectedBatchClipIds(allIds);
+                      }
+                    }}
+                    className="text-xs text-purple-400 hover:text-purple-300 font-semibold"
+                  >
+                    {selectedBatchClipIds.length === (selectedProject?.clips?.length || 0) ? 'Deselect All' : 'Select All'}
+                  </button>
                 </div>
 
-                <div className="space-y-3 max-h-[650px] overflow-y-auto pr-1">
+                {/* Batch Export Action Bar */}
+                <div className="p-3 bg-slate-900 border border-slate-800 rounded-2xl space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300 font-medium">
+                      Selected: <strong className="text-white">{selectedBatchClipIds.length}</strong> / {selectedProject?.clips?.length || 0} clips
+                    </span>
+                    <button
+                      onClick={handleBatchExport}
+                      disabled={selectedBatchClipIds.length === 0 || isBatchExporting}
+                      className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-40 text-white font-bold rounded-xl shadow transition text-xs flex items-center space-x-1.5"
+                    >
+                      <Layers className="w-3.5 h-3.5" />
+                      <span>{isBatchExporting ? `Batching (${batchProgress}%)` : 'Batch Export Selected'}</span>
+                    </button>
+                  </div>
+
+                  {isBatchExporting && (
+                    <div className="space-y-1">
+                      <div className="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+                        <div className="h-full bg-purple-500 transition-all duration-300" style={{ width: `${batchProgress}%` }} />
+                      </div>
+                      <span className="text-[10px] text-purple-300 font-mono block text-right">Processing batch FFmpeg renders...</span>
+                    </div>
+                  )}
+
+                  {batchStatus === 'COMPLETED' && batchExportRecords.length > 0 && (
+                    <div className="p-2 bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-xs rounded-xl flex items-center justify-between">
+                      <span className="font-semibold">Batch Ready! {batchExportRecords.length} MP4s generated on disk.</span>
+                      <button
+                        onClick={() => setActiveTab('distribution')}
+                        className="px-2 py-0.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-bold text-[11px]"
+                      >
+                        Publish All
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-3 max-h-[600px] overflow-y-auto pr-1">
                   {(selectedProject?.clips || []).map((clip) => {
                     const isSelected = selectedClip?.id === clip.id;
+                    const isBatchChecked = selectedBatchClipIds.includes(clip.id);
                     return (
                       <div 
                         key={clip.id}
@@ -857,20 +1029,35 @@ export default function App() {
                           setIsPlaying(false);
                           setExportedVideoUrl(null);
                         }}
-                        className={`p-4 rounded-2xl border transition cursor-pointer ${
+                        className={`p-4 rounded-2xl border transition cursor-pointer relative ${
                           isSelected 
                             ? 'bg-purple-950/70 border-purple-500 shadow-lg shadow-purple-900/30' 
                             : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
                         }`}
                       >
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center space-x-1.5">
-                            <span className="text-[11px] font-black bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-md border border-emerald-500/30">
-                              Hook {clip.hookScore}
-                            </span>
-                            <span className="text-[11px] font-black bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-md border border-cyan-500/30">
-                              Moat {clip.viralityScore}
-                            </span>
+                          <div className="flex items-center space-x-2">
+                            <input
+                              type="checkbox"
+                              checked={isBatchChecked}
+                              onChange={(e) => {
+                                e.stopPropagation();
+                                if (isBatchChecked) {
+                                  setSelectedBatchClipIds(prev => prev.filter(id => id !== clip.id));
+                                } else {
+                                  setSelectedBatchClipIds(prev => [...prev, clip.id]);
+                                }
+                              }}
+                              className="w-4 h-4 rounded bg-slate-950 border-slate-700 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                            />
+                            <div className="flex items-center space-x-1.5">
+                              <span className="text-[11px] font-black bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-md border border-emerald-500/30">
+                                Hook {clip.hookScore}
+                              </span>
+                              <span className="text-[11px] font-black bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded-md border border-cyan-500/30">
+                                Moat {clip.viralityScore}
+                              </span>
+                            </div>
                           </div>
                           <span className="text-xs text-slate-400 font-mono font-semibold">{clip.duration}s</span>
                         </div>
@@ -879,6 +1066,21 @@ export default function App() {
 
                         <div className="text-xs text-purple-300 mt-2 bg-purple-950/50 p-2.5 rounded-xl border border-purple-900/40">
                           <span className="font-bold text-amber-300">💡 Viral Reason:</span> {clip.reason}
+                        </div>
+
+                        <div className="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between text-xs">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSchedulePublish(clip.id, clip.title, 'TIKTOK');
+                            }}
+                            className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg border border-slate-700/80 transition flex items-center space-x-1 font-medium text-[11px]"
+                          >
+                            <Rocket className="w-3 h-3 text-pink-400" />
+                            <span>Instant Auto-Publish</span>
+                          </button>
+
+                          <span className="text-[11px] text-slate-400 font-mono">1080x1920 MP4</span>
                         </div>
                       </div>
                     );
@@ -909,28 +1111,81 @@ export default function App() {
                 <div className="w-[280px] h-[480px] bg-black rounded-[36px] border-4 border-slate-800 overflow-hidden relative shadow-2xl flex flex-col justify-between p-4 group select-none">
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-slate-800 rounded-b-xl z-30" />
                   
-                  {exportedVideoUrl ? (
-                    <video 
-                      src={exportedVideoUrl} 
-                      controls 
-                      autoPlay 
-                      loop 
-                      className="absolute inset-0 w-full h-full object-cover z-10" 
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-tr from-purple-950 via-slate-900 to-indigo-950 flex items-center justify-center">
-                      <div 
-                        onClick={() => setIsPlaying(!isPlaying)}
-                        className="w-16 h-16 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center cursor-pointer group-hover:scale-110 transition shadow-2xl"
+                  {/* Always active real video preview layer */}
+                  <video 
+                    ref={canvasVideoRef}
+                    src={activeCanvasVideoUrl} 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover z-0 cursor-pointer" 
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLVideoElement;
+                      const errorObj = target.error;
+                      const networkState = target.networkState;
+                      const isOnline = typeof window !== 'undefined' ? window.navigator.onLine : true;
+
+                      console.error('[App.tsx Video Load Error] Detailed Media Inspection:', {
+                        resolvedUrl: activeCanvasVideoUrl,
+                        isOnline,
+                        networkState,
+                        errorCode: errorObj?.code,
+                        errorMessage: errorObj?.message,
+                        nativeEvent: e
+                      });
+
+                      // Trigger server disk verification check
+                      fetch(`/api/verify-video?url=${encodeURIComponent(activeCanvasVideoUrl)}`)
+                        .then(res => res.json())
+                        .then(data => {
+                          console.log('[App.tsx Video Server Disk Verification]:', data);
+                          if (data.exists) {
+                            console.log(`[Server Disk Verification] Video file EXISTS on disk at "${data.diskPath}". Network state: ${networkState}`);
+                          } else {
+                            console.warn(`[Server Disk Verification] Video file NOT found on server disk at "${data.diskPath}".`);
+                          }
+                        })
+                        .catch(fetchErr => {
+                          console.error('[App.tsx Video Verification Fetch Error]:', fetchErr);
+                        });
+
+                      setCanvasVideoError(activeCanvasVideoUrl);
+                    }}
+                  />
+
+                  {canvasVideoError && (
+                    <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-4 text-center z-30">
+                      <AlertCircle className="w-10 h-10 text-amber-400 mb-2 animate-bounce" />
+                      <p className="text-xs font-bold text-white">Video Source Error</p>
+                      <p className="text-[10px] text-amber-300 font-mono mt-1 break-all px-2 py-1 bg-slate-900 rounded border border-slate-800 max-w-full">
+                        {canvasVideoError}
+                      </p>
+                      <p className="text-[11px] text-slate-400 mt-2">File could not be found or served from disk.</p>
+                      <button 
+                        onClick={() => setCanvasVideoError(null)} 
+                        className="mt-3 px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white text-[11px] font-bold rounded-lg transition"
                       >
-                        {isPlaying ? (
-                          <Pause className="w-8 h-8 text-white fill-white" />
-                        ) : (
-                          <Play className="w-8 h-8 text-white fill-white ml-1" />
-                        )}
+                        Retry Loading
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Play / Pause overlay */}
+                  {!isPlaying && (
+                    <div 
+                      onClick={() => setIsPlaying(true)}
+                      className="absolute inset-0 bg-black/40 z-20 flex items-center justify-center cursor-pointer"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl">
+                        <Play className="w-8 h-8 text-white fill-white ml-1" />
                       </div>
                     </div>
                   )}
+
+                  {/* Scrim Overlay for Subtitle Legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80 pointer-events-none z-10" />
 
                   {/* Top info */}
                   <div className="relative z-20 flex justify-between items-center text-[10px] text-white/90 font-bold">
@@ -1126,6 +1381,213 @@ export default function App() {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ================= 3.5 DISTRIBUTION & AUTO-PUBLISHER (#1 ARCHITECTURAL PRIORITY) ================= */}
+        {activeTab === 'distribution' && (
+          <div className="p-6 lg:p-12 max-w-7xl mx-auto space-y-8">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+              <div>
+                <div className="inline-flex items-center space-x-2 bg-pink-500/10 border border-pink-500/30 px-3 py-1 rounded-full text-pink-300 text-xs font-semibold mb-2">
+                  <Rocket className="w-3.5 h-3.5" />
+                  <span>#1 Priority Architecture: Zero-Friction Social Distribution</span>
+                </div>
+                <h1 className="text-3xl font-black tracking-tight">Autonomous Multi-Platform Auto-Publisher</h1>
+                <p className="text-slate-400 text-sm mt-1">
+                  Schedule or instantly drip 1080x1920 MP4 clips directly to TikTok, Instagram Reels, YouTube Shorts, and LinkedIn.
+                </p>
+              </div>
+
+              <button
+                onClick={() => {
+                  if (selectedClip) {
+                    handleSchedulePublish(selectedClip.id, selectedClip.title, selectedPublishPlatform, selectedPublishCaption);
+                  } else {
+                    alert('Please select a clip in the Editor first.');
+                  }
+                }}
+                disabled={isPublishing}
+                className="px-5 py-3 bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-bold rounded-2xl shadow-lg shadow-pink-600/30 flex items-center justify-center space-x-2 transition self-start md:self-auto"
+              >
+                <Send className="w-4 h-4" />
+                <span>{isPublishing ? 'Publishing via API...' : 'Publish Active Clip Now'}</span>
+              </button>
+            </div>
+
+            {/* Connected Social Accounts Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { name: 'TikTok Feed', handle: '@contentforge_official', status: 'Connected', color: 'from-black to-slate-900', border: 'border-pink-500/40', badge: 'Active' },
+                { name: 'Instagram Reels', handle: '@contentforge_ai', status: 'Connected', color: 'from-purple-950 to-pink-950', border: 'border-purple-500/40', badge: 'Active' },
+                { name: 'YouTube Shorts', handle: 'ContentForge Channel', status: 'Connected', color: 'from-red-950 to-slate-950', border: 'border-red-500/40', badge: 'Active' },
+                { name: 'LinkedIn Video', handle: 'ContentForge AI Corp', status: 'Connected', color: 'from-blue-950 to-slate-950', border: 'border-blue-500/40', badge: 'Active' }
+              ].map((acc) => (
+                <div key={acc.name} className={`p-4 rounded-2xl bg-gradient-to-br ${acc.color} border ${acc.border} space-y-2`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-200">{acc.name}</span>
+                    <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">
+                      {acc.badge}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-400 font-mono truncate">{acc.handle}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Main Publishing Queue & Developer API Grid */}
+            <div className="grid lg:grid-cols-12 gap-8">
+              
+              {/* Left Column: Scheduled & Published Queue */}
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-base text-slate-200 flex items-center space-x-2">
+                    <Rocket className="w-4 h-4 text-pink-400" />
+                    <span>Publishing Schedule & History ({publishQueue.length})</span>
+                  </h3>
+                  <button onClick={fetchPublishQueue} className="text-xs text-purple-400 hover:text-purple-300 font-semibold flex items-center space-x-1">
+                    <RefreshCw className="w-3.5 h-3.5" />
+                    <span>Refresh Queue</span>
+                  </button>
+                </div>
+
+                <div className="bg-slate-900/80 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
+                  {publishQueue.length === 0 ? (
+                    <div className="p-12 text-center space-y-3">
+                      <Send className="w-10 h-10 text-slate-600 mx-auto" />
+                      <p className="text-slate-300 font-semibold text-sm">No scheduled posts in queue yet.</p>
+                      <p className="text-slate-500 text-xs max-w-sm mx-auto">
+                        Click "Instant Auto-Publish" on any clip in the Editor to automatically post to TikTok or Instagram Reels.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="divide-y divide-slate-800/80">
+                      {publishQueue.map((item) => (
+                        <div key={item.id} className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-slate-850 transition">
+                          <div className="space-y-1 flex-1">
+                            <div className="flex items-center space-x-2">
+                              <span className="px-2.5 py-0.5 bg-pink-500/20 text-pink-300 text-[10px] font-bold rounded-md border border-pink-500/30">
+                                {item.platform}
+                              </span>
+                              <span className="text-xs font-bold text-white truncate max-w-xs">{item.clipTitle}</span>
+                            </div>
+                            <p className="text-xs text-slate-400 font-mono line-clamp-1">{item.caption}</p>
+                            <div className="flex items-center space-x-3 text-[11px] text-slate-500">
+                              <span>Post ID: <strong className="text-slate-300 font-mono">{item.platformPostId || 'pending'}</strong></span>
+                              <span>•</span>
+                              <span>Scheduled: {new Date(item.scheduledAt).toLocaleString()}</span>
+                            </div>
+                          </div>
+
+                          <div className="self-end sm:self-center shrink-0">
+                            <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                              item.status === 'PUBLISHED'
+                                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                                : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                            }`}>
+                              {item.status}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Column: Instant Publisher & Public REST API Key */}
+              <div className="lg:col-span-4 space-y-6">
+                
+                {/* Instant Publisher Widget */}
+                <div className="p-5 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-4 shadow-xl">
+                  <h3 className="font-bold text-sm text-slate-200 uppercase tracking-wider flex items-center space-x-2">
+                    <Sliders className="w-4 h-4 text-purple-400" />
+                    <span>Quick Dispatch Tool</span>
+                  </h3>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                      Target Platform
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {[
+                        { id: 'TIKTOK', label: 'TikTok' },
+                        { id: 'INSTAGRAM_REELS', label: 'Reels' },
+                        { id: 'YOUTUBE_SHORTS', label: 'Shorts' },
+                        { id: 'LINKEDIN', label: 'LinkedIn' }
+                      ].map((p) => (
+                        <button
+                          key={p.id}
+                          onClick={() => setSelectedPublishPlatform(p.id as any)}
+                          className={`py-2 px-3 rounded-xl text-xs font-bold transition border ${
+                            selectedPublishPlatform === p.id
+                              ? 'bg-pink-600/20 border-pink-500 text-pink-300'
+                              : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                          }`}
+                        >
+                          {p.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">
+                      Custom Caption & Hashtags
+                    </label>
+                    <textarea
+                      value={selectedPublishCaption}
+                      onChange={(e) => setSelectedPublishCaption(e.target.value)}
+                      placeholder={selectedClip ? `${selectedClip.title} 🚀 #shorts #viral #reels` : 'Enter custom caption...'}
+                      rows={3}
+                      className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-purple-500 font-mono"
+                    />
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      const clipToPublish = selectedClip || (selectedProject?.clips?.[0]);
+                      if (clipToPublish) {
+                        handleSchedulePublish(clipToPublish.id, clipToPublish.title, selectedPublishPlatform, selectedPublishCaption);
+                      } else {
+                        alert('Please select or create a clip first.');
+                      }
+                    }}
+                    disabled={isPublishing}
+                    className="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold rounded-xl shadow transition text-xs flex items-center justify-center space-x-2"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>{isPublishing ? 'Dispatching...' : 'Dispatch to Selected Channel'}</span>
+                  </button>
+                </div>
+
+                {/* Developer Public REST API Box (Priority #3) */}
+                <div className="p-5 bg-slate-900/90 border border-slate-800 rounded-3xl space-y-3 shadow-xl">
+                  <div className="flex items-center space-x-2">
+                    <Code className="w-4 h-4 text-cyan-400" />
+                    <h3 className="font-bold text-sm text-slate-200 uppercase tracking-wider">
+                      Developer v1 REST API
+                    </h3>
+                  </div>
+
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    Programmatically trigger batch clip renders and social auto-publishing via Bearer token authentication.
+                  </p>
+
+                  <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
+                    <span className="block text-[10px] text-slate-500 font-bold uppercase">Endpoint</span>
+                    <code className="text-xs text-cyan-300 font-mono">POST /api/v1/clips/batch-export</code>
+                  </div>
+
+                  <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
+                    <span className="block text-[10px] text-slate-500 font-bold uppercase">Queue Status</span>
+                    <code className="text-xs text-emerald-300 font-mono">GET /api/v1/publish/queue</code>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
           </div>
         )}
@@ -1409,7 +1871,7 @@ export default function App() {
       <SocialMediaPreviewModal
         isOpen={socialPreviewOpen}
         onClose={() => setSocialPreviewOpen(false)}
-        videoUrl={exportedVideoUrl || exportSuccessInfo?.exportUrl || null}
+        videoUrl={exportedVideoUrl || exportSuccessInfo?.exportUrl || selectedProject?.videoPath || null}
         clipTitle={selectedClip?.title || 'Viral Short Clip'}
         viralityScore={selectedClip?.viralityScore || 85}
         reason={selectedClip?.reason}

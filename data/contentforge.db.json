@@ -279,9 +279,877 @@
       "creditsBalanceMinutes": 15,
       "createdAt": "2026-11-07T18:19:17.375Z",
       "updatedAt": "2026-11-07T18:19:17.376Z"
+    },
+    {
+      "id": "usr_1794076675093",
+      "email": "creator_1794076674956@contentforge.ai",
+      "passwordHash": "$2b$10$Zb8sTbQfEkDjX13OmD7WbONeQDoB6dj18YABOPow5h88AHl12lo6S",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:37:55.093Z",
+      "updatedAt": "2026-11-07T18:37:55.093Z"
+    },
+    {
+      "id": "usr_upgrade_1794076677754",
+      "email": "upgrade_1794076677754@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:37:57.754Z",
+      "updatedAt": "2026-11-07T18:37:57.755Z"
+    },
+    {
+      "id": "usr_persist_1794076677758",
+      "email": "persist_1794076677758@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:37:57.758Z",
+      "updatedAt": "2026-11-07T18:37:57.758Z"
+    },
+    {
+      "id": "usr_test_1794076681536",
+      "email": "founder_1794076681536@example.com",
+      "passwordHash": "$2b$10$EEt.N0OLU2D4anHktlhHOea7Vm5iGaGmGNUAA4GhD7zU/6yEjdxKa",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:38:01.536Z",
+      "updatedAt": "2026-11-07T18:38:01.537Z"
+    },
+    {
+      "id": "usr_1794076710764",
+      "email": "creator_1794076710639@contentforge.ai",
+      "passwordHash": "$2b$10$a77/EAw3Db4y8W68a7sOEuWL89nh8Jmq6ZMdE8BuudUwLEC.CjCGm",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:38:30.764Z",
+      "updatedAt": "2026-11-07T18:38:30.765Z"
+    },
+    {
+      "id": "usr_upgrade_1794076713174",
+      "email": "upgrade_1794076713174@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:38:33.174Z",
+      "updatedAt": "2026-11-07T18:38:33.176Z"
+    },
+    {
+      "id": "usr_persist_1794076713179",
+      "email": "persist_1794076713179@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:38:33.179Z",
+      "updatedAt": "2026-11-07T18:38:33.179Z"
+    },
+    {
+      "id": "usr_test_1794076716608",
+      "email": "founder_1794076716608@example.com",
+      "passwordHash": "$2b$10$7oK6aujOIYEmXH/Wx4GtYeGbbXVXThT4ysAPFHnUmZ4NFrnfx0KWu",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:38:36.608Z",
+      "updatedAt": "2026-11-07T18:38:36.608Z"
+    },
+    {
+      "id": "usr_1794076826532",
+      "email": "creator_1794076826407@contentforge.ai",
+      "passwordHash": "$2b$10$mnLPBPlL0pQjomnmdDoZbuEudF9/oRyA1oTRhTGrIp30U2/fusRfy",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:40:26.532Z",
+      "updatedAt": "2026-11-07T18:40:26.533Z"
+    },
+    {
+      "id": "usr_upgrade_1794076829012",
+      "email": "upgrade_1794076829012@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:40:29.012Z",
+      "updatedAt": "2026-11-07T18:40:29.015Z"
+    },
+    {
+      "id": "usr_persist_1794076829018",
+      "email": "persist_1794076829018@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:40:29.018Z",
+      "updatedAt": "2026-11-07T18:40:29.018Z"
+    },
+    {
+      "id": "usr_test_1794076832419",
+      "email": "founder_1794076832419@example.com",
+      "passwordHash": "$2b$10$zr2i9GxoJyoLYLuNlPp8dupkadohwLqLSsvQ8vNGAVxYFyiqN2D1.",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:40:32.419Z",
+      "updatedAt": "2026-11-07T18:40:32.419Z"
+    },
+    {
+      "id": "usr_1794077090006",
+      "email": "creator_1794077089876@contentforge.ai",
+      "passwordHash": "$2b$10$bwVPbUCyl03IUmpioCl2Deh9LOz7o.koorIjclU.VBPLU19k0Q0ky",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:44:50.006Z",
+      "updatedAt": "2026-11-07T18:44:50.006Z"
+    },
+    {
+      "id": "usr_upgrade_1794077092381",
+      "email": "upgrade_1794077092381@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:44:52.381Z",
+      "updatedAt": "2026-11-07T18:44:52.383Z"
+    },
+    {
+      "id": "usr_persist_1794077092387",
+      "email": "persist_1794077092387@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:44:52.387Z",
+      "updatedAt": "2026-11-07T18:44:52.387Z"
+    },
+    {
+      "id": "usr_test_1794077095891",
+      "email": "founder_1794077095891@example.com",
+      "passwordHash": "$2b$10$N/4EkieprVxH3CHvRIqdb.h/UD5YJKonG4iLId.Y9gWRqPjj/Ix4.",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:44:55.891Z",
+      "updatedAt": "2026-11-07T18:44:55.892Z"
+    },
+    {
+      "id": "usr_1794077523929",
+      "email": "creator_1794077523782@contentforge.ai",
+      "passwordHash": "$2b$10$SZRe0BuYiB0gAbt52AjLrukBhzsjS158qUW32nd1KfP8OCC0Jzly2",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:52:03.929Z",
+      "updatedAt": "2026-11-07T18:52:03.930Z"
+    },
+    {
+      "id": "usr_upgrade_1794077526712",
+      "email": "upgrade_1794077526712@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:52:06.712Z",
+      "updatedAt": "2026-11-07T18:52:06.714Z"
+    },
+    {
+      "id": "usr_persist_1794077526718",
+      "email": "persist_1794077526718@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:52:06.718Z",
+      "updatedAt": "2026-11-07T18:52:06.718Z"
+    },
+    {
+      "id": "usr_test_1794077530221",
+      "email": "founder_1794077530221@example.com",
+      "passwordHash": "$2b$10$KSOw2JcYkL0WlmgJ5ru1f.bm0WiI06uL0SKAbOsIs2TPbjpxSili2",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:52:10.221Z",
+      "updatedAt": "2026-11-07T18:52:10.222Z"
+    },
+    {
+      "id": "usr_1794077785961",
+      "email": "creator_1794077785839@contentforge.ai",
+      "passwordHash": "$2b$10$3Ld4iI5FqpJJJBGyGKSe3O6zmAIkFEG3zwUr4sufyaDLeuX1SgZQa",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:56:25.961Z",
+      "updatedAt": "2026-11-07T18:56:25.961Z"
+    },
+    {
+      "id": "usr_upgrade_1794077788202",
+      "email": "upgrade_1794077788202@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:56:28.202Z",
+      "updatedAt": "2026-11-07T18:56:28.204Z"
+    },
+    {
+      "id": "usr_persist_1794077788208",
+      "email": "persist_1794077788208@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:56:28.208Z",
+      "updatedAt": "2026-11-07T18:56:28.208Z"
+    },
+    {
+      "id": "usr_test_1794077791496",
+      "email": "founder_1794077791496@example.com",
+      "passwordHash": "$2b$10$IFNemSAbzI1cIAjYlLXwqOrh2w3dX1AzG0C.wnkAXRXnNUF69AtTW",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:56:31.496Z",
+      "updatedAt": "2026-11-07T18:56:31.496Z"
+    },
+    {
+      "id": "usr_1794077931119",
+      "email": "creator_1794077930993@contentforge.ai",
+      "passwordHash": "$2b$10$nyKK3c83M9grncdkiRp38udj/jHLbqJ9CskbKSgzJcXT5Y8zxpM8u",
+      "name": "New Creator Turn Turn",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:58:51.119Z",
+      "updatedAt": "2026-11-07T18:58:51.119Z"
+    },
+    {
+      "id": "usr_upgrade_1794077933626",
+      "email": "upgrade_1794077933626@test.com",
+      "passwordHash": "hash",
+      "name": "Upgrade Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:58:53.626Z",
+      "updatedAt": "2026-11-07T18:58:53.628Z"
+    },
+    {
+      "id": "usr_persist_1794077933632",
+      "email": "persist_1794077933632@storage.test",
+      "passwordHash": "hash",
+      "name": "Persistence Tester",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 300,
+      "createdAt": "2026-11-07T18:58:53.632Z",
+      "updatedAt": "2026-11-07T18:58:53.632Z"
+    },
+    {
+      "id": "usr_test_1794077937236",
+      "email": "founder_1794077937236@example.com",
+      "passwordHash": "$2b$10$RMxqzAbmJ5jJfMGoMCadzuCdLfNRZy3XEyPnivzr4P6mvbsLic5g6",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T18:58:57.236Z",
+      "updatedAt": "2026-11-07T18:58:57.236Z"
     }
   ],
   "projects": [
+    {
+      "id": "proj_persist_1794077939820",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:58:59.820Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794077933639",
+      "userId": "usr_userA_1794077933639",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:58:53.639Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077933634",
+      "userId": "usr_persist_1794077933632",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:58:53.634Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794077933634",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:58:53.634Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794077931128",
+      "userId": "usr_upload_test_1794077931128",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794077931128.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:58:51.128Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077793768",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:56:33.768Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794077788215",
+      "userId": "usr_userA_1794077788215",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:56:28.215Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077788210",
+      "userId": "usr_persist_1794077788208",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:56:28.210Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794077788210",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:56:28.210Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794077785970",
+      "userId": "usr_upload_test_1794077785970",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794077785970.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:56:25.970Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077532559",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:52:12.559Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794077526725",
+      "userId": "usr_userA_1794077526725",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:52:06.725Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077526720",
+      "userId": "usr_persist_1794077526718",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:52:06.720Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794077526720",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:52:06.720Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794077523941",
+      "userId": "usr_upload_test_1794077523941",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794077523941.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:52:03.941Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077098523",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:44:58.523Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794077092394",
+      "userId": "usr_userA_1794077092394",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:44:52.394Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794077092389",
+      "userId": "usr_persist_1794077092387",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:44:52.389Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794077092389",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:44:52.389Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794077090016",
+      "userId": "usr_upload_test_1794077090016",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794077090016.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:44:50.016Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076834863",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:40:34.863Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794076829025",
+      "userId": "usr_userA_1794076829025",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:40:29.025Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076829020",
+      "userId": "usr_persist_1794076829018",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:40:29.020Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794076829020",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:40:29.020Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794076826541",
+      "userId": "usr_upload_test_1794076826541",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794076826541.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:40:26.541Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076719302",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:38:39.302Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794076713185",
+      "userId": "usr_userA_1794076713185",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:38:33.185Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076713181",
+      "userId": "usr_persist_1794076713179",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:38:33.181Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794076713181",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:38:33.181Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794076710773",
+      "userId": "usr_upload_test_1794076710773",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794076710773.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:38:30.773Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076684015",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:38:04.015Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_userA_1794076677763",
+      "userId": "usr_userA_1794076677763",
+      "title": "Secret User A Strategy",
+      "videoPath": "/uploads/secretA.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 15,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:37:57.763Z",
+      "transcript": [],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794076677759",
+      "userId": "usr_persist_1794076677758",
+      "title": "Persistent Architecture Masterclass",
+      "videoPath": "/uploads/sample.mp4",
+      "durationMinutes": 20,
+      "fileSizeMb": 50,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T18:37:57.759Z",
+      "transcript": [
+        {
+          "id": "t1",
+          "start": 0,
+          "end": 5,
+          "text": "Hello persistent world."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_persist_1",
+          "projectId": "proj_persist_1794076677759",
+          "title": "Persistent Clip 1",
+          "startTime": 0,
+          "endTime": 15,
+          "duration": 15,
+          "hookScore": 90,
+          "engagementScore": 88,
+          "viralityScore": 92,
+          "reason": "Curiosity opening",
+          "category": "Tech",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T18:37:57.759Z"
+        }
+      ]
+    },
+    {
+      "id": "proj_upload_1794076675101",
+      "userId": "usr_upload_test_1794076675101",
+      "title": "My Scaling Masterclass",
+      "videoPath": "/app/applet/uploads/sample_upload_1794076675101.mp4",
+      "durationMinutes": 12,
+      "fileSizeMb": 18.5,
+      "sourceType": "UPLOAD",
+      "status": "PENDING",
+      "createdAt": "2026-11-07T18:37:55.101Z",
+      "transcript": [],
+      "clips": []
+    },
     {
       "id": "proj_persist_1794075559972",
       "userId": "usr_test_1",
@@ -4454,6 +5322,102 @@
   ],
   "exports": [
     {
+      "id": "exp_1794077933622",
+      "clipId": "clip_1794077933622",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794077933622.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:58:53.622Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794077788198",
+      "clipId": "clip_1794077788198",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794077788198.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:56:28.198Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794077526709",
+      "clipId": "clip_1794077526709",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794077526709.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:52:06.709Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794077092378",
+      "clipId": "clip_1794077092378",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794077092378.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:44:52.378Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794076829008",
+      "clipId": "clip_1794076829008",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794076829008.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:40:29.008Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794076819443",
+      "clipId": "clip_1794076765586_1",
+      "userId": "usr_1794071168552",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/export_1794076815910.mp4",
+      "fileSizeBytes": 289461,
+      "createdAt": "2026-11-07T18:40:19.443Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794076713170",
+      "clipId": "clip_1794076713170",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794076713170.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:38:33.170Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794076677751",
+      "clipId": "clip_1794076677751",
+      "userId": "usr_export_e2e",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/sample_verified_1794076677751.mp4",
+      "fileSizeBytes": 284000,
+      "createdAt": "2026-11-07T18:37:57.751Z",
+      "status": "READY"
+    },
+    {
       "id": "exp_1794075553564",
       "clipId": "clip_1794075553564",
       "userId": "usr_export_e2e",
@@ -4572,6 +5536,269 @@
       "fileSizeBytes": 0,
       "createdAt": "2026-11-07T17:06:09.166Z",
       "status": "FAILED"
+    }
+  ],
+  "batchExportJobs": [
+    {
+      "id": "batch_1794077933642",
+      "userId": "usr_batch_1794077933642",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:58:53.642Z",
+      "completedAt": "2026-11-07T18:58:53.644Z"
+    },
+    {
+      "id": "batch_1794077788217",
+      "userId": "usr_batch_1794077788217",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:56:28.217Z",
+      "completedAt": "2026-11-07T18:56:28.219Z"
+    },
+    {
+      "id": "batch_1794077526727",
+      "userId": "usr_batch_1794077526727",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:52:06.727Z",
+      "completedAt": "2026-11-07T18:52:06.729Z"
+    },
+    {
+      "id": "batch_1794077092396",
+      "userId": "usr_batch_1794077092396",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:44:52.396Z",
+      "completedAt": "2026-11-07T18:44:52.398Z"
+    },
+    {
+      "id": "batch_1794076829027",
+      "userId": "usr_batch_1794076829027",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:40:29.027Z",
+      "completedAt": "2026-11-07T18:40:29.029Z"
+    },
+    {
+      "id": "batch_1794076713187",
+      "userId": "usr_batch_1794076713187",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:38:33.187Z",
+      "completedAt": "2026-11-07T18:38:33.189Z"
+    },
+    {
+      "id": "batch_1794076677764",
+      "userId": "usr_batch_1794076677764",
+      "projectId": "proj_batch_1",
+      "clipIds": [
+        "clip_1",
+        "clip_2",
+        "clip_3"
+      ],
+      "status": "COMPLETED",
+      "progress": 100,
+      "totalClips": 3,
+      "completedClips": 3,
+      "exportIds": [
+        "exp_batch_1"
+      ],
+      "createdAt": "2026-11-07T18:37:57.764Z",
+      "completedAt": "2026-11-07T18:37:57.765Z"
+    }
+  ],
+  "publishSchedules": [
+    {
+      "id": "pub_1794077933647",
+      "userId": "usr_pub_1794077933647",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:58:53.647Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:58:53.647Z"
+    },
+    {
+      "id": "pub_1794077788222",
+      "userId": "usr_pub_1794077788222",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:56:28.222Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:56:28.222Z"
+    },
+    {
+      "id": "pub_1794077526732",
+      "userId": "usr_pub_1794077526732",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:52:06.732Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:52:06.732Z"
+    },
+    {
+      "id": "pub_1794077092400",
+      "userId": "usr_pub_1794077092400",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:44:52.400Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:44:52.400Z"
+    },
+    {
+      "id": "pub_1794076829032",
+      "userId": "usr_pub_1794076829032",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:40:29.032Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:40:29.032Z"
+    },
+    {
+      "id": "pub_1794076713192",
+      "userId": "usr_pub_1794076713192",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:38:33.192Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:38:33.192Z"
+    },
+    {
+      "id": "pub_1794076677767",
+      "userId": "usr_pub_1794076677767",
+      "exportId": "exp_publish_1",
+      "clipId": "clip_publish_1",
+      "clipTitle": "Scaling Bootstrapped SaaS to $1M ARR",
+      "platform": "TIKTOK",
+      "caption": "The secret to $1M ARR 🚀 #shorts #viral",
+      "hashtags": [
+        "#shorts",
+        "#viral",
+        "#saas"
+      ],
+      "scheduledAt": "2026-11-07T18:37:57.767Z",
+      "status": "PUBLISHED",
+      "platformPostId": "tt_post_91823746",
+      "createdAt": "2026-11-07T18:37:57.767Z"
     }
   ]
 }
