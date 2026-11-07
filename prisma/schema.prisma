@@ -1,0 +1,168 @@
+// ContentForge AI — Production PostgreSQL Schema (Prompt 4 of Build Blueprint)
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String          @id @default(uuid())
+  clerkId       String          @unique
+  email         String          @unique
+  name          String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  subscription  Subscription?
+  projects      Project[]
+  usageTracking UsageTracking[]
+  billingEvents BillingEvent[]
+
+  @@index([clerkId])
+  @@index([email])
+}
+
+model Subscription {
+  id                   String             @id @default(uuid())
+  userId               String             @unique
+  user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripeCustomerId     String             @unique
+  stripeSubscriptionId String             @unique
+  plan                 SubscriptionPlan   @default(FREE)
+  status               SubscriptionStatus @default(ACTIVE)
+  renewalDate          DateTime
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+
+  @@index([stripeCustomerId])
+}
+
+enum SubscriptionPlan {
+  FREE
+  CREATOR
+  PRO
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  PAST_DUE
+}
+
+model Project {
+  id          String        @id @default(uuid())
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title       String
+  sourceType  SourceType    @default(YOUTUBE)
+  status      ProjectStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  video       Video?
+  transcript  Transcript?
+  clips       Clip[]
+
+  @@index([userId])
+}
+
+enum SourceType {
+  YOUTUBE
+  UPLOAD_MP4
+  UPLOAD_MOV
+}
+
+enum ProjectStatus {
+  PENDING
+  TRANSCRIBING
+  ANALYZING
+  COMPLETED
+  FAILED
+}
+
+model Video {
+  id         String   @id @default(uuid())
+  projectId  String   @unique
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  storageUrl String
+  fileSizeMb Float
+  resolution String
+  duration   Float
+  createdAt  DateTime @default(now())
+}
+
+model Transcript {
+  id        String   @id @default(uuid())
+  projectId String   @unique
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  rawText   String
+  wordsJson Json
+  createdAt DateTime @default(now())
+}
+
+model Clip {
+  id              String   @id @default(uuid())
+  projectId       String
+  project         Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title           String
+  startTime       Float
+  endTime         Float
+  duration        Float
+  hookScore       Int
+  engagementScore Int
+  viralityScore   Int
+  reason          String
+  captionStyle    String
+  platform        String
+  createdAt       DateTime @default(now())
+  exports         Export[]
+
+  @@index([projectId])
+}
+
+model Export {
+  id         String       @id @default(uuid())
+  clipId     String
+  clip       Clip         @relation(fields: [clipId], references: [id], onDelete: Cascade)
+  exportUrl  String
+  format     String       @default("MP4")
+  resolution String       @default("1080x1920")
+  watermark  Boolean      @default(true)
+  status     ExportStatus @default(PROCESSING)
+  createdAt  DateTime     @default(now())
+
+  @@index([clipId])
+}
+
+enum ExportStatus {
+  PROCESSING
+  READY
+  FAILED
+}
+
+model UsageTracking {
+  id              String   @id @default(uuid())
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  minutesUsed     Int      @default(0)
+  videosProcessed Int      @default(0)
+  billingMonth    String
+  createdAt       DateTime @default(now())
+
+  @@unique([userId, billingMonth])
+}
+
+model BillingEvent {
+  id               String   @id @default(uuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  stripeEventId    String   @unique
+  stripeCustomerId String
+  amountPaid       Float
+  currency         String   @default("USD")
+  status           String
+  createdAt        DateTime @default(now())
+
+  @@index([userId])
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ContentForge AI",
+  "description": "Turn 1 video into 50 viral TikToks, Instagram Reels, and YouTube Shorts in minutes with AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
