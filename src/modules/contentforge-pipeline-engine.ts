@@ -37,6 +37,44 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
+/**
+ * Resolves a valid TrueType font path across Windows, Linux, and macOS platforms.
+ * Returns null if no known system font exists on disk, allowing FFmpeg to use its internal default font.
+ */
+export function resolveCrossPlatformFontPath(): string | null {
+  const isWindows = process.platform === 'win32';
+
+  const candidates = isWindows
+    ? [
+        'C:/Windows/Fonts/arial.ttf',
+        'C:/Windows/Fonts/segoeui.ttf',
+        'C:/Windows/Fonts/calibri.ttf',
+        'C:/Windows/Fonts/tahoma.ttf'
+      ]
+    : [
+        '/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf',
+        '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+        '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf',
+        '/usr/share/fonts/truetype/freefont/FreeSans.ttf',
+        '/System/Library/Fonts/Helvetica.ttc',
+        '/Library/Fonts/Arial.ttf'
+      ];
+
+  for (const fontPath of candidates) {
+    try {
+      if (fs.existsSync(fontPath)) {
+        // In FFmpeg video filters, colons are option delimiters.
+        // On Windows, the drive letter colon must be escaped (e.g. C\:/Windows/Fonts/arial.ttf)
+        return isWindows ? fontPath.replace(/^([A-Za-z]):/, '$1\\:') : fontPath;
+      }
+    } catch {
+      // Ignore filesystem permission or access errors
+    }
+  }
+
+  return null;
+}
+
 export async function executeFFmpegClipGeneration(options: ClipGenerationOptions & { title?: string; watermark?: boolean }): Promise<{ 
   success: boolean; 
   command: string; 
@@ -67,7 +105,9 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
     command = `ffmpeg -y -ss ${options.startTime} -i "${options.inputVideoPath}" -t ${duration} -vf "${vf}" -c:v libx264 -preset ultrafast -crf 23 -c:a aac -b:a 128k "${targetFilePath}"`;
   } else {
     // Generate real, playable 9:16 video using native FFmpeg lavfi filters with title banner & audio tone
-    let vf = `drawtext=text='${safeTitle}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2-100:fontfile=/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf`;
+    const fontPath = resolveCrossPlatformFontPath();
+    const fontParam = fontPath ? `:fontfile=${fontPath}` : '';
+    let vf = `drawtext=text='${safeTitle}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2-100${fontParam}`;
     if (watermarkText) vf += `,${watermarkText}`;
     command = `ffmpeg -y -f lavfi -i color=c=0x1e1b4b:s=${width}x${height}:d=${duration} -f lavfi -i sine=f=330:b=4:d=${duration} -vf "${vf}" -c:v libx264 -preset ultrafast -c:a aac -b:a 128k "${targetFilePath}"`;
   }
@@ -75,7 +115,20 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
   console.log(`[FFmpeg Engine] Executing real command: ${command}`);
 
   try {
-    const { stdout, stderr } = await execAsync(command);
+    try {
+      await execAsync(command);
+    } catch (execErr: any) {
+      // Resilient fallback: If fontfile caused a fontconfig / file not found error, retry without fontfile parameter
+      if (command.includes('fontfile=')) {
+        console.warn('[FFmpeg Font Fallback] Font error encountered. Retrying execution with default system font...');
+        const fontlessCommand = command.replace(/:fontfile=[^":,\s]+/g, '');
+        console.log(`[FFmpeg Fallback Command]: ${fontlessCommand}`);
+        await execAsync(fontlessCommand);
+      } else {
+        throw execErr;
+      }
+    }
+
     if (fs.existsSync(targetFilePath)) {
       const stats = fs.statSync(targetFilePath);
       return { 
@@ -91,7 +144,7 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
     return { 
       success: false, 
       command, 
-      filePath: '',
+      filePath: '', 
       fileSizeBytes: 0,
       error: error.message 
     };
