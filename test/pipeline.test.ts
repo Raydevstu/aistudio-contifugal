@@ -138,7 +138,11 @@ test('Epic 5: Real FFmpeg 1080x1920 MP4 Video Render & ffprobe Verification (AC-
     watermark: true
   });
 
-  assert.strictEqual(result.success, true, 'FFmpeg execution must succeed');
+  assert.strictEqual(
+    result.success,
+    true,
+    `FFmpeg failed: ${result.error ?? "unknown"}`
+  );
   assert.ok(result.fileSizeBytes > 10000, 'Rendered MP4 file size must be > 10KB');
 
   const absolutePath = path.resolve('public/exports', outputFileName);

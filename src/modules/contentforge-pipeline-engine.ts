@@ -36,44 +36,11 @@ export function buildFFmpegClipCommand(options: ClipGenerationOptions): string {
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { resolveFontPath, escapeFontPathForFFmpeg } from '../utils/fonts';
 
-/**
- * Resolves a valid TrueType font path across Windows, Linux, and macOS platforms.
- * Returns null if no known system font exists on disk, allowing FFmpeg to use its internal default font.
- */
-export function resolveCrossPlatformFontPath(): string | null {
-  const isWindows = process.platform === 'win32';
-
-  const candidates = isWindows
-    ? [
-        'C:/Windows/Fonts/arial.ttf',
-        'C:/Windows/Fonts/segoeui.ttf',
-        'C:/Windows/Fonts/calibri.ttf',
-        'C:/Windows/Fonts/tahoma.ttf'
-      ]
-    : [
-        '/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf',
-        '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
-        '/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf',
-        '/usr/share/fonts/truetype/freefont/FreeSans.ttf',
-        '/System/Library/Fonts/Helvetica.ttc',
-        '/Library/Fonts/Arial.ttf'
-      ];
-
-  for (const fontPath of candidates) {
-    try {
-      if (fs.existsSync(fontPath)) {
-        // In FFmpeg video filters, colons are option delimiters.
-        // On Windows, the drive letter colon must be escaped (e.g. C\:/Windows/Fonts/arial.ttf)
-        return isWindows ? fontPath.replace(/^([A-Za-z]):/, '$1\\:') : fontPath;
-      }
-    } catch {
-      // Ignore filesystem permission or access errors
-    }
-  }
-
-  return null;
-}
+// Re-export for test suite compatibility
+export { resolveFontPath, escapeFontPathForFFmpeg };
+export const resolveCrossPlatformFontPath = resolveFontPath;
 
 export async function executeFFmpegClipGeneration(options: ClipGenerationOptions & { title?: string; watermark?: boolean }): Promise<{ 
   success: boolean; 
@@ -85,7 +52,6 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
   const duration = [15, 30, 45, 60].includes(options.duration) ? options.duration : 15;
   const resolution = options.resolution || '1080x1920';
   const [width, height] = resolution.split('x');
-  const watermarkText = options.watermark ? "drawtext=text='ContentForge.ai':fontcolor=white@0.6:fontsize=36:x=w-tw-40:y=h-th-40" : '';
   const safeTitle = (options.title || 'Viral Short').replace(/['"\\:%;]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 50) || 'Viral Short';
 
   const exportsDir = path.resolve('public/exports');
@@ -96,20 +62,33 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
   const outputFileName = path.basename(options.outputClipPath);
   const targetFilePath = path.join(exportsDir, outputFileName);
 
+  const resolvedFont = resolveFontPath();
+  const escapedFont = resolvedFont ? escapeFontPathForFFmpeg(resolvedFont) : null;
+
+  console.log('[Fonts] Resolved font path:', resolvedFont ?? 'system default');
+
+  const titleDrawText = escapedFont
+    ? `drawtext=text='${safeTitle}':fontfile='${escapedFont}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2-100`
+    : `drawtext=text='${safeTitle}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2-100`;
+
+  const watermarkDrawText = options.watermark
+    ? (escapedFont
+        ? `drawtext=text='ContentForge.ai':fontfile='${escapedFont}':fontcolor=white@0.6:fontsize=36:x=w-tw-40:y=h-th-40`
+        : `drawtext=text='ContentForge.ai':fontcolor=white@0.6:fontsize=36:x=w-tw-40:y=h-th-40`)
+    : '';
+
   let command: string;
 
   // Check if real input video file exists on disk
   if (fs.existsSync(options.inputVideoPath)) {
-    let vf = `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`;
-    if (watermarkText) vf += `,${watermarkText}`;
-    command = `ffmpeg -y -ss ${options.startTime} -i "${options.inputVideoPath}" -t ${duration} -vf "${vf}" -c:v libx264 -preset ultrafast -crf 23 -c:a aac -b:a 128k "${targetFilePath}"`;
+    const filters = [`scale=${width}:${height}:force_original_aspect_ratio=increase`, `crop=${width}:${height}`];
+    if (watermarkDrawText) filters.push(watermarkDrawText);
+    command = `ffmpeg -y -ss ${options.startTime} -i "${options.inputVideoPath}" -t ${duration} -vf "${filters.join(',')}" -c:v libx264 -preset ultrafast -crf 23 -c:a aac -b:a 128k "${targetFilePath}"`;
   } else {
     // Generate real, playable 9:16 video using native FFmpeg lavfi filters with title banner & audio tone
-    const fontPath = resolveCrossPlatformFontPath();
-    const fontParam = fontPath ? `:fontfile=${fontPath}` : '';
-    let vf = `drawtext=text='${safeTitle}':fontcolor=white:fontsize=48:x=(w-text_w)/2:y=(h-text_h)/2-100${fontParam}`;
-    if (watermarkText) vf += `,${watermarkText}`;
-    command = `ffmpeg -y -f lavfi -i color=c=0x1e1b4b:s=${width}x${height}:d=${duration} -f lavfi -i sine=f=330:b=4:d=${duration} -vf "${vf}" -c:v libx264 -preset ultrafast -c:a aac -b:a 128k "${targetFilePath}"`;
+    const filters = [titleDrawText];
+    if (watermarkDrawText) filters.push(watermarkDrawText);
+    command = `ffmpeg -y -f lavfi -i color=c=0x1e1b4b:s=${width}x${height}:d=${duration} -f lavfi -i sine=f=330:b=4:d=${duration} -vf "${filters.join(',')}" -c:v libx264 -preset ultrafast -c:a aac -b:a 128k "${targetFilePath}"`;
   }
 
   console.log(`[FFmpeg Engine] Executing real command: ${command}`);
@@ -118,10 +97,10 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
     try {
       await execAsync(command);
     } catch (execErr: any) {
-      // Resilient fallback: If fontfile caused a fontconfig / file not found error, retry without fontfile parameter
+      // Resilient fallback: If fontfile caused an error, retry without fontfile parameter
       if (command.includes('fontfile=')) {
         console.warn('[FFmpeg Font Fallback] Font error encountered. Retrying execution with default system font...');
-        const fontlessCommand = command.replace(/:fontfile=[^":,\s]+/g, '');
+        const fontlessCommand = command.replace(/:fontfile='[^']+'/g, '').replace(/fontfile='[^']+'/g, '');
         console.log(`[FFmpeg Fallback Command]: ${fontlessCommand}`);
         await execAsync(fontlessCommand);
       } else {

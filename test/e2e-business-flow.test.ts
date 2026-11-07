@@ -223,7 +223,11 @@ test('E2E-006 Clip Generation', async () => {
     watermark: true
   });
 
-  assert.strictEqual(result.success, true, 'FFmpeg clip generation must succeed');
+  assert.strictEqual(
+    result.success,
+    true,
+    `FFmpeg failed: ${result.error ?? "unknown"}`
+  );
   assert.ok(result.fileSizeBytes > 100000, 'File must be physically written with size > 100KB');
 
   const absoluteFilePath = path.resolve('public' + result.filePath);
