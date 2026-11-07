@@ -11,9 +11,11 @@ import {
   BarChart3, RefreshCw, Settings as SettingsIcon, User as UserIcon, Check, AlertCircle,
   ExternalLink, Code, Database, Cpu, Server, GitBranch, Lock, Mail, Globe, HelpCircle, Star,
   Trash2, Copy, Terminal, Eye, Send, CheckSquare, AlertTriangle, TrendingUp, DollarSign,
-  Compass, ChevronRight, Sliders, Volume2, ShieldAlert, Rocket, LogIn, LogOut, KeyRound
+  Compass, ChevronRight, Sliders, Volume2, ShieldAlert, Rocket, LogIn, LogOut, KeyRound,
+  Smartphone
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { SocialMediaPreviewModal } from './components/SocialMediaPreviewModal';
 
 interface UserProfile {
   id: string;
@@ -97,6 +99,7 @@ export default function App() {
   const [exportProgress, setExportProgress] = useState(0);
   const [exportedVideoUrl, setExportedVideoUrl] = useState<string | null>(null);
   const [exportSuccessInfo, setExportSuccessInfo] = useState<any | null>(null);
+  const [socialPreviewOpen, setSocialPreviewOpen] = useState(false);
 
   // Stripe Checkout Modal (Epic 8)
   const [stripeModalOpen, setStripeModalOpen] = useState(false);
@@ -372,13 +375,8 @@ export default function App() {
         setIsExporting(false);
         confetti({ particleCount: 120, spread: 80, origin: { y: 0.5 } });
 
-        // Trigger real MP4 download
-        const a = document.createElement('a');
-        a.href = data.exportUrl;
-        a.download = `${selectedClip.title.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.mp4`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // Open Social Media Preview Modal so user can review feed simulation before downloading
+        setSocialPreviewOpen(true);
       } else {
         throw new Error('FFmpeg failed to generate video file');
       }
@@ -387,6 +385,17 @@ export default function App() {
       setIsExporting(false);
       alert('Export failed: ' + e.message);
     }
+  };
+
+  const handleDownloadFinalMP4 = () => {
+    const url = exportedVideoUrl || exportSuccessInfo?.exportUrl;
+    if (!url || !selectedClip) return;
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${selectedClip.title.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase()}.mp4`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   // Stripe Upgrade (Epic 8)
@@ -884,7 +893,16 @@ export default function App() {
                     <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
                     <span className="font-bold text-slate-300 uppercase tracking-wider">9:16 Canvas</span>
                   </div>
-                  <span className="bg-slate-800 text-purple-300 px-2 py-0.5 rounded-md text-[11px] font-mono">1080x1920 MP4</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setSocialPreviewOpen(true)}
+                      className="flex items-center space-x-1.5 px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg border border-slate-700/60 transition text-[11px] font-medium"
+                    >
+                      <Smartphone className="w-3.5 h-3.5 text-pink-400" />
+                      <span>Feed Preview</span>
+                    </button>
+                    <span className="bg-slate-800 text-purple-300 px-2 py-0.5 rounded-md text-[11px] font-mono">1080x1920</span>
+                  </div>
                 </div>
 
                 {/* Phone frame */}
@@ -1050,8 +1068,8 @@ export default function App() {
                   </button>
                 </div>
 
-                {/* Render Button */}
-                <div className="space-y-2">
+                {/* Render & Preview Actions */}
+                <div className="space-y-2.5">
                   <button 
                     onClick={handleExportClip}
                     disabled={isExporting}
@@ -1059,6 +1077,15 @@ export default function App() {
                   >
                     <Download className="w-4 h-4" />
                     <span>{isExporting ? `Rendering via FFmpeg (${exportProgress}%)` : 'Render Real 1080x1920 MP4'}</span>
+                  </button>
+
+                  <button
+                    onClick={() => setSocialPreviewOpen(true)}
+                    disabled={!selectedClip}
+                    className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold rounded-xl border border-slate-700/80 flex items-center justify-center space-x-2 transition text-xs shadow-sm"
+                  >
+                    <Smartphone className="w-4 h-4 text-pink-400" />
+                    <span>Social Media Preview (TikTok / Reels)</span>
                   </button>
 
                   {isExporting && (
@@ -1071,13 +1098,29 @@ export default function App() {
                   )}
 
                   {exportSuccessInfo && (
-                    <div className="p-3 bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-xs rounded-xl space-y-1">
+                    <div className="p-3.5 bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-xs rounded-xl space-y-2">
                       <div className="flex items-center space-x-1.5 font-bold">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                         <span>Real FFmpeg Video Ready ({exportSuccessInfo.resolution})</span>
                       </div>
                       <div className="text-[11px] text-slate-300">
-                        Size: {(exportSuccessInfo.fileSizeBytes / 1024).toFixed(1)} KB • Downloaded to browser.
+                        Size: {(exportSuccessInfo.fileSizeBytes / 1024).toFixed(1)} KB • Rendered on disk.
+                      </div>
+                      <div className="flex items-center gap-2 pt-1">
+                        <button
+                          onClick={() => setSocialPreviewOpen(true)}
+                          className="flex-1 py-1.5 bg-pink-600 hover:bg-pink-500 text-white font-semibold rounded-lg text-center transition flex items-center justify-center gap-1.5 text-xs shadow"
+                        >
+                          <Smartphone className="w-3.5 h-3.5" />
+                          <span>Preview in Feed</span>
+                        </button>
+                        <button
+                          onClick={handleDownloadFinalMP4}
+                          className="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg text-center transition flex items-center justify-center gap-1.5 text-xs shadow"
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          <span>Download MP4</span>
+                        </button>
                       </div>
                     </div>
                   )}
@@ -1361,6 +1404,21 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Social Media Feed Preview Modal */}
+      <SocialMediaPreviewModal
+        isOpen={socialPreviewOpen}
+        onClose={() => setSocialPreviewOpen(false)}
+        videoUrl={exportedVideoUrl || exportSuccessInfo?.exportUrl || null}
+        clipTitle={selectedClip?.title || 'Viral Short Clip'}
+        viralityScore={selectedClip?.viralityScore || 85}
+        reason={selectedClip?.reason}
+        duration={selectedClip?.duration || 15}
+        category={selectedClip?.category}
+        fileSizeBytes={exportSuccessInfo?.fileSizeBytes}
+        userName={user?.name || 'Creator'}
+        onDownload={handleDownloadFinalMP4}
+      />
 
       {/* Footer */}
       <footer className="border-t border-slate-900 bg-slate-950/80 py-6 px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">

@@ -49,9 +49,39 @@
       "creditsBalanceMinutes": 15,
       "createdAt": "2026-11-07T17:07:10.859Z",
       "updatedAt": "2026-11-07T17:07:10.859Z"
+    },
+    {
+      "id": "usr_test_1794071831092",
+      "email": "founder_1794071831092@example.com",
+      "passwordHash": "$2b$10$kg.herfVt71ikSId8bk0dO8FGscaTmRR0Zx4MY/OMgC.L2aL7Ksmq",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T17:17:11.092Z",
+      "updatedAt": "2026-11-07T17:17:11.093Z"
     }
   ],
   "projects": [
+    {
+      "id": "proj_persist_1794071833645",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:17:13.645Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
     {
       "id": "proj_1794071306937",
       "userId": "usr_1794071168552",
