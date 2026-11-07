@@ -1,0 +1,3791 @@
+{
+  "users": [
+    {
+      "id": "usr_test_1794070992880",
+      "email": "founder_1794070992880@example.com",
+      "passwordHash": "$2b$10$EumkG.WE5i4f9ziHeIHh..rZuXo5uS/8w6ssAUK9g8trugAVcbPBq",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T17:03:12.880Z",
+      "updatedAt": "2026-11-07T17:03:12.880Z"
+    },
+    {
+      "id": "usr_test_1794071141221",
+      "email": "founder_1794071141221@example.com",
+      "passwordHash": "$2b$10$V400IAsyXfm9YGAkt6/pfe4M5JCJRNcIeOb6uTjLWCh/p9OwdYItS",
+      "name": "Verified Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T17:05:41.221Z",
+      "updatedAt": "2026-11-07T17:05:41.221Z"
+    },
+    {
+      "id": "usr_1794071168540",
+      "email": "founder_e2e@contentforge.ai",
+      "passwordHash": "$2b$10$W8yKMZ9FI8MZe8xA6mny6eNUCdtZF0ij8XRyqdzrVt9KbYpxpDXSq",
+      "name": "E2E Founder",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T17:06:08.540Z",
+      "updatedAt": "2026-11-07T17:06:08.540Z"
+    },
+    {
+      "id": "usr_1794071168552",
+      "email": "creator@contentforge.ai",
+      "passwordHash": "$2a$10$wKxH8P5vDqB3c2...hashed",
+      "name": "Content Creator",
+      "plan": "Creator",
+      "creditsBalanceMinutes": 225,
+      "createdAt": "2026-11-07T17:06:08.552Z",
+      "updatedAt": "2026-11-07T17:08:27.246Z"
+    },
+    {
+      "id": "usr_1794071230859",
+      "email": "founder_audit@contentforge.ai",
+      "passwordHash": "$2b$10$bnvqnOkM2Drmad46ky0/Nej5RyF.wqV0npKthhh0IRHMizs1gLg4K",
+      "name": "Founder Tester",
+      "plan": "Free",
+      "creditsBalanceMinutes": 15,
+      "createdAt": "2026-11-07T17:07:10.859Z",
+      "updatedAt": "2026-11-07T17:07:10.859Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj_1794071306937",
+      "userId": "usr_1794071168552",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+      "videoPath": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "durationMinutes": 15,
+      "fileSizeMb": 45,
+      "sourceType": "YOUTUBE",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:08:26.937Z",
+      "transcript": [
+        {
+          "id": "seg_1",
+          "start": 0,
+          "end": 6.5,
+          "text": "The number one reason creators struggle with \"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\" is they optimize for vanity instead of retention."
+        },
+        {
+          "id": "seg_2",
+          "start": 6.9,
+          "end": 13.4,
+          "text": "When you look at the first three seconds of any high-performing video, the pattern interrupt dictates everything."
+        },
+        {
+          "id": "seg_3",
+          "start": 13.8,
+          "end": 20.3,
+          "text": "Here is the exact method you should apply right now to 10x your organic reach without spending ad budget."
+        },
+        {
+          "id": "seg_4",
+          "start": 20.7,
+          "end": 27.2,
+          "text": "Step one: identify your audience's core frustration and address it directly in your opening line."
+        },
+        {
+          "id": "seg_5",
+          "start": 27.6,
+          "end": 33.9,
+          "text": "Step two: keep word cadence tight and pair high-value insights with dynamic caption styling."
+        },
+        {
+          "id": "seg_6",
+          "start": 34.3,
+          "end": 40.8,
+          "text": "If you follow this framework consistently, your watch time and replay frequency will compound dramatically."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_1794071307244_1",
+          "projectId": "proj_1794071306937",
+          "title": "The number one reason creators struggle with \"Ri...",
+          "startTime": 0,
+          "endTime": 27.2,
+          "duration": 27,
+          "hookScore": 79,
+          "engagementScore": 93,
+          "viralityScore": 85,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:08:27.244Z"
+        },
+        {
+          "id": "clip_1794071307244_2",
+          "projectId": "proj_1794071306937",
+          "title": "Step one: identify your audience's core frustrat...",
+          "startTime": 20.7,
+          "endTime": 40.8,
+          "duration": 20,
+          "hookScore": 74,
+          "engagementScore": 79,
+          "viralityScore": 76,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:08:27.244Z"
+        }
+      ],
+      "wordTimestamps": [
+        {
+          "word": "The",
+          "start": 0,
+          "end": 0.24,
+          "confidence": 0.95
+        },
+        {
+          "word": "number",
+          "start": 0.24,
+          "end": 0.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "one",
+          "start": 0.48,
+          "end": 0.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 0.72,
+          "end": 0.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "creators",
+          "start": 0.96,
+          "end": 1.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "struggle",
+          "start": 1.2,
+          "end": 1.44,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.44,
+          "end": 1.69,
+          "confidence": 0.95
+        },
+        {
+          "word": "\"Rick",
+          "start": 1.69,
+          "end": 1.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "Astley",
+          "start": 1.93,
+          "end": 2.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "-",
+          "start": 2.17,
+          "end": 2.41,
+          "confidence": 0.95
+        },
+        {
+          "word": "Never",
+          "start": 2.41,
+          "end": 2.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "Gonna",
+          "start": 2.65,
+          "end": 2.89,
+          "confidence": 0.95
+        },
+        {
+          "word": "Give",
+          "start": 2.89,
+          "end": 3.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "You",
+          "start": 3.13,
+          "end": 3.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "Up",
+          "start": 3.37,
+          "end": 3.61,
+          "confidence": 0.95
+        },
+        {
+          "word": "(Official",
+          "start": 3.61,
+          "end": 3.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "Video)",
+          "start": 3.85,
+          "end": 4.09,
+          "confidence": 0.95
+        },
+        {
+          "word": "(4K",
+          "start": 4.09,
+          "end": 4.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "Remaster)\"",
+          "start": 4.33,
+          "end": 4.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 4.57,
+          "end": 4.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "they",
+          "start": 4.81,
+          "end": 5.06,
+          "confidence": 0.95
+        },
+        {
+          "word": "optimize",
+          "start": 5.06,
+          "end": 5.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "for",
+          "start": 5.3,
+          "end": 5.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "vanity",
+          "start": 5.54,
+          "end": 5.78,
+          "confidence": 0.95
+        },
+        {
+          "word": "instead",
+          "start": 5.78,
+          "end": 6.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 6.02,
+          "end": 6.26,
+          "confidence": 0.95
+        },
+        {
+          "word": "retention.",
+          "start": 6.26,
+          "end": 6.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "When",
+          "start": 6.9,
+          "end": 7.28,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 7.28,
+          "end": 7.66,
+          "confidence": 0.95
+        },
+        {
+          "word": "look",
+          "start": 7.66,
+          "end": 8.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "at",
+          "start": 8.05,
+          "end": 8.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 8.43,
+          "end": 8.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "first",
+          "start": 8.81,
+          "end": 9.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "three",
+          "start": 9.19,
+          "end": 9.58,
+          "confidence": 0.95
+        },
+        {
+          "word": "seconds",
+          "start": 9.58,
+          "end": 9.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 9.96,
+          "end": 10.34,
+          "confidence": 0.95
+        },
+        {
+          "word": "any",
+          "start": 10.34,
+          "end": 10.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-performing",
+          "start": 10.72,
+          "end": 11.11,
+          "confidence": 0.95
+        },
+        {
+          "word": "video,",
+          "start": 11.11,
+          "end": 11.49,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 11.49,
+          "end": 11.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "pattern",
+          "start": 11.87,
+          "end": 12.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "interrupt",
+          "start": 12.25,
+          "end": 12.64,
+          "confidence": 0.95
+        },
+        {
+          "word": "dictates",
+          "start": 12.64,
+          "end": 13.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "everything.",
+          "start": 13.02,
+          "end": 13.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "Here",
+          "start": 13.8,
+          "end": 14.14,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 14.14,
+          "end": 14.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 14.48,
+          "end": 14.83,
+          "confidence": 0.95
+        },
+        {
+          "word": "exact",
+          "start": 14.83,
+          "end": 15.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "method",
+          "start": 15.17,
+          "end": 15.51,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.51,
+          "end": 15.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "should",
+          "start": 15.85,
+          "end": 16.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "apply",
+          "start": 16.19,
+          "end": 16.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "right",
+          "start": 16.54,
+          "end": 16.88,
+          "confidence": 0.95
+        },
+        {
+          "word": "now",
+          "start": 16.88,
+          "end": 17.22,
+          "confidence": 0.95
+        },
+        {
+          "word": "to",
+          "start": 17.22,
+          "end": 17.56,
+          "confidence": 0.95
+        },
+        {
+          "word": "10x",
+          "start": 17.56,
+          "end": 17.91,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 17.91,
+          "end": 18.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "organic",
+          "start": 18.25,
+          "end": 18.59,
+          "confidence": 0.95
+        },
+        {
+          "word": "reach",
+          "start": 18.59,
+          "end": 18.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "without",
+          "start": 18.93,
+          "end": 19.27,
+          "confidence": 0.95
+        },
+        {
+          "word": "spending",
+          "start": 19.27,
+          "end": 19.62,
+          "confidence": 0.95
+        },
+        {
+          "word": "ad",
+          "start": 19.62,
+          "end": 19.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "budget.",
+          "start": 19.96,
+          "end": 20.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 20.7,
+          "end": 21.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "one:",
+          "start": 21.13,
+          "end": 21.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "identify",
+          "start": 21.57,
+          "end": 22,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 22,
+          "end": 22.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "audience's",
+          "start": 22.43,
+          "end": 22.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "core",
+          "start": 22.87,
+          "end": 23.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "frustration",
+          "start": 23.3,
+          "end": 23.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 23.73,
+          "end": 24.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "address",
+          "start": 24.17,
+          "end": 24.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "it",
+          "start": 24.6,
+          "end": 25.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "directly",
+          "start": 25.03,
+          "end": 25.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "in",
+          "start": 25.47,
+          "end": 25.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 25.9,
+          "end": 26.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "opening",
+          "start": 26.33,
+          "end": 26.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "line.",
+          "start": 26.77,
+          "end": 27.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 27.6,
+          "end": 28.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "two:",
+          "start": 28.05,
+          "end": 28.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "keep",
+          "start": 28.5,
+          "end": 28.95,
+          "confidence": 0.95
+        },
+        {
+          "word": "word",
+          "start": 28.95,
+          "end": 29.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "cadence",
+          "start": 29.4,
+          "end": 29.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "tight",
+          "start": 29.85,
+          "end": 30.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 30.3,
+          "end": 30.75,
+          "confidence": 0.95
+        },
+        {
+          "word": "pair",
+          "start": 30.75,
+          "end": 31.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-value",
+          "start": 31.2,
+          "end": 31.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "insights",
+          "start": 31.65,
+          "end": 32.1,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 32.1,
+          "end": 32.55,
+          "confidence": 0.95
+        },
+        {
+          "word": "dynamic",
+          "start": 32.55,
+          "end": 33,
+          "confidence": 0.95
+        },
+        {
+          "word": "caption",
+          "start": 33,
+          "end": 33.45,
+          "confidence": 0.95
+        },
+        {
+          "word": "styling.",
+          "start": 33.45,
+          "end": 33.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "If",
+          "start": 34.3,
+          "end": 34.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 34.73,
+          "end": 35.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 35.17,
+          "end": 35.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "this",
+          "start": 35.6,
+          "end": 36.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "framework",
+          "start": 36.03,
+          "end": 36.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "consistently,",
+          "start": 36.47,
+          "end": 36.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 36.9,
+          "end": 37.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "watch",
+          "start": 37.33,
+          "end": 37.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "time",
+          "start": 37.77,
+          "end": 38.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 38.2,
+          "end": 38.63,
+          "confidence": 0.95
+        },
+        {
+          "word": "replay",
+          "start": 38.63,
+          "end": 39.07,
+          "confidence": 0.95
+        },
+        {
+          "word": "frequency",
+          "start": 39.07,
+          "end": 39.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "will",
+          "start": 39.5,
+          "end": 39.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "compound",
+          "start": 39.93,
+          "end": 40.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "dramatically.",
+          "start": 40.37,
+          "end": 40.8,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "proj_1794071265764",
+      "userId": "usr_1794071168552",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+      "videoPath": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "durationMinutes": 15,
+      "fileSizeMb": 45,
+      "sourceType": "YOUTUBE",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:07:45.764Z",
+      "transcript": [
+        {
+          "id": "seg_1",
+          "start": 0,
+          "end": 6.5,
+          "text": "The number one reason creators struggle with \"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\" is they optimize for vanity instead of retention."
+        },
+        {
+          "id": "seg_2",
+          "start": 6.9,
+          "end": 13.4,
+          "text": "When you look at the first three seconds of any high-performing video, the pattern interrupt dictates everything."
+        },
+        {
+          "id": "seg_3",
+          "start": 13.8,
+          "end": 20.3,
+          "text": "Here is the exact method you should apply right now to 10x your organic reach without spending ad budget."
+        },
+        {
+          "id": "seg_4",
+          "start": 20.7,
+          "end": 27.2,
+          "text": "Step one: identify your audience's core frustration and address it directly in your opening line."
+        },
+        {
+          "id": "seg_5",
+          "start": 27.6,
+          "end": 33.9,
+          "text": "Step two: keep word cadence tight and pair high-value insights with dynamic caption styling."
+        },
+        {
+          "id": "seg_6",
+          "start": 34.3,
+          "end": 40.8,
+          "text": "If you follow this framework consistently, your watch time and replay frequency will compound dramatically."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_1794071266007_1",
+          "projectId": "proj_1794071265764",
+          "title": "The number one reason creators struggle with \"Ri...",
+          "startTime": 0,
+          "endTime": 27.2,
+          "duration": 27,
+          "hookScore": 79,
+          "engagementScore": 93,
+          "viralityScore": 85,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:46.007Z"
+        },
+        {
+          "id": "clip_1794071266007_2",
+          "projectId": "proj_1794071265764",
+          "title": "Step one: identify your audience's core frustrat...",
+          "startTime": 20.7,
+          "endTime": 40.8,
+          "duration": 20,
+          "hookScore": 74,
+          "engagementScore": 79,
+          "viralityScore": 76,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:46.007Z"
+        }
+      ],
+      "wordTimestamps": [
+        {
+          "word": "The",
+          "start": 0,
+          "end": 0.24,
+          "confidence": 0.95
+        },
+        {
+          "word": "number",
+          "start": 0.24,
+          "end": 0.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "one",
+          "start": 0.48,
+          "end": 0.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 0.72,
+          "end": 0.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "creators",
+          "start": 0.96,
+          "end": 1.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "struggle",
+          "start": 1.2,
+          "end": 1.44,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.44,
+          "end": 1.69,
+          "confidence": 0.95
+        },
+        {
+          "word": "\"Rick",
+          "start": 1.69,
+          "end": 1.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "Astley",
+          "start": 1.93,
+          "end": 2.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "-",
+          "start": 2.17,
+          "end": 2.41,
+          "confidence": 0.95
+        },
+        {
+          "word": "Never",
+          "start": 2.41,
+          "end": 2.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "Gonna",
+          "start": 2.65,
+          "end": 2.89,
+          "confidence": 0.95
+        },
+        {
+          "word": "Give",
+          "start": 2.89,
+          "end": 3.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "You",
+          "start": 3.13,
+          "end": 3.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "Up",
+          "start": 3.37,
+          "end": 3.61,
+          "confidence": 0.95
+        },
+        {
+          "word": "(Official",
+          "start": 3.61,
+          "end": 3.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "Video)",
+          "start": 3.85,
+          "end": 4.09,
+          "confidence": 0.95
+        },
+        {
+          "word": "(4K",
+          "start": 4.09,
+          "end": 4.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "Remaster)\"",
+          "start": 4.33,
+          "end": 4.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 4.57,
+          "end": 4.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "they",
+          "start": 4.81,
+          "end": 5.06,
+          "confidence": 0.95
+        },
+        {
+          "word": "optimize",
+          "start": 5.06,
+          "end": 5.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "for",
+          "start": 5.3,
+          "end": 5.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "vanity",
+          "start": 5.54,
+          "end": 5.78,
+          "confidence": 0.95
+        },
+        {
+          "word": "instead",
+          "start": 5.78,
+          "end": 6.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 6.02,
+          "end": 6.26,
+          "confidence": 0.95
+        },
+        {
+          "word": "retention.",
+          "start": 6.26,
+          "end": 6.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "When",
+          "start": 6.9,
+          "end": 7.28,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 7.28,
+          "end": 7.66,
+          "confidence": 0.95
+        },
+        {
+          "word": "look",
+          "start": 7.66,
+          "end": 8.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "at",
+          "start": 8.05,
+          "end": 8.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 8.43,
+          "end": 8.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "first",
+          "start": 8.81,
+          "end": 9.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "three",
+          "start": 9.19,
+          "end": 9.58,
+          "confidence": 0.95
+        },
+        {
+          "word": "seconds",
+          "start": 9.58,
+          "end": 9.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 9.96,
+          "end": 10.34,
+          "confidence": 0.95
+        },
+        {
+          "word": "any",
+          "start": 10.34,
+          "end": 10.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-performing",
+          "start": 10.72,
+          "end": 11.11,
+          "confidence": 0.95
+        },
+        {
+          "word": "video,",
+          "start": 11.11,
+          "end": 11.49,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 11.49,
+          "end": 11.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "pattern",
+          "start": 11.87,
+          "end": 12.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "interrupt",
+          "start": 12.25,
+          "end": 12.64,
+          "confidence": 0.95
+        },
+        {
+          "word": "dictates",
+          "start": 12.64,
+          "end": 13.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "everything.",
+          "start": 13.02,
+          "end": 13.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "Here",
+          "start": 13.8,
+          "end": 14.14,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 14.14,
+          "end": 14.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 14.48,
+          "end": 14.83,
+          "confidence": 0.95
+        },
+        {
+          "word": "exact",
+          "start": 14.83,
+          "end": 15.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "method",
+          "start": 15.17,
+          "end": 15.51,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.51,
+          "end": 15.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "should",
+          "start": 15.85,
+          "end": 16.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "apply",
+          "start": 16.19,
+          "end": 16.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "right",
+          "start": 16.54,
+          "end": 16.88,
+          "confidence": 0.95
+        },
+        {
+          "word": "now",
+          "start": 16.88,
+          "end": 17.22,
+          "confidence": 0.95
+        },
+        {
+          "word": "to",
+          "start": 17.22,
+          "end": 17.56,
+          "confidence": 0.95
+        },
+        {
+          "word": "10x",
+          "start": 17.56,
+          "end": 17.91,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 17.91,
+          "end": 18.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "organic",
+          "start": 18.25,
+          "end": 18.59,
+          "confidence": 0.95
+        },
+        {
+          "word": "reach",
+          "start": 18.59,
+          "end": 18.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "without",
+          "start": 18.93,
+          "end": 19.27,
+          "confidence": 0.95
+        },
+        {
+          "word": "spending",
+          "start": 19.27,
+          "end": 19.62,
+          "confidence": 0.95
+        },
+        {
+          "word": "ad",
+          "start": 19.62,
+          "end": 19.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "budget.",
+          "start": 19.96,
+          "end": 20.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 20.7,
+          "end": 21.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "one:",
+          "start": 21.13,
+          "end": 21.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "identify",
+          "start": 21.57,
+          "end": 22,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 22,
+          "end": 22.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "audience's",
+          "start": 22.43,
+          "end": 22.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "core",
+          "start": 22.87,
+          "end": 23.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "frustration",
+          "start": 23.3,
+          "end": 23.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 23.73,
+          "end": 24.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "address",
+          "start": 24.17,
+          "end": 24.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "it",
+          "start": 24.6,
+          "end": 25.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "directly",
+          "start": 25.03,
+          "end": 25.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "in",
+          "start": 25.47,
+          "end": 25.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 25.9,
+          "end": 26.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "opening",
+          "start": 26.33,
+          "end": 26.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "line.",
+          "start": 26.77,
+          "end": 27.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 27.6,
+          "end": 28.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "two:",
+          "start": 28.05,
+          "end": 28.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "keep",
+          "start": 28.5,
+          "end": 28.95,
+          "confidence": 0.95
+        },
+        {
+          "word": "word",
+          "start": 28.95,
+          "end": 29.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "cadence",
+          "start": 29.4,
+          "end": 29.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "tight",
+          "start": 29.85,
+          "end": 30.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 30.3,
+          "end": 30.75,
+          "confidence": 0.95
+        },
+        {
+          "word": "pair",
+          "start": 30.75,
+          "end": 31.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-value",
+          "start": 31.2,
+          "end": 31.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "insights",
+          "start": 31.65,
+          "end": 32.1,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 32.1,
+          "end": 32.55,
+          "confidence": 0.95
+        },
+        {
+          "word": "dynamic",
+          "start": 32.55,
+          "end": 33,
+          "confidence": 0.95
+        },
+        {
+          "word": "caption",
+          "start": 33,
+          "end": 33.45,
+          "confidence": 0.95
+        },
+        {
+          "word": "styling.",
+          "start": 33.45,
+          "end": 33.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "If",
+          "start": 34.3,
+          "end": 34.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 34.73,
+          "end": 35.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 35.17,
+          "end": 35.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "this",
+          "start": 35.6,
+          "end": 36.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "framework",
+          "start": 36.03,
+          "end": 36.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "consistently,",
+          "start": 36.47,
+          "end": 36.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 36.9,
+          "end": 37.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "watch",
+          "start": 37.33,
+          "end": 37.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "time",
+          "start": 37.77,
+          "end": 38.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 38.2,
+          "end": 38.63,
+          "confidence": 0.95
+        },
+        {
+          "word": "replay",
+          "start": 38.63,
+          "end": 39.07,
+          "confidence": 0.95
+        },
+        {
+          "word": "frequency",
+          "start": 39.07,
+          "end": 39.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "will",
+          "start": 39.5,
+          "end": 39.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "compound",
+          "start": 39.93,
+          "end": 40.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "dramatically.",
+          "start": 40.37,
+          "end": 40.8,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "proj_1794071255529",
+      "userId": "usr_1794071168552",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+      "videoPath": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "durationMinutes": 15,
+      "fileSizeMb": 45,
+      "sourceType": "YOUTUBE",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:07:35.529Z",
+      "transcript": [
+        {
+          "id": "seg_1",
+          "start": 0,
+          "end": 6.5,
+          "text": "The number one reason creators struggle with \"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\" is they optimize for vanity instead of retention."
+        },
+        {
+          "id": "seg_2",
+          "start": 6.9,
+          "end": 13.4,
+          "text": "When you look at the first three seconds of any high-performing video, the pattern interrupt dictates everything."
+        },
+        {
+          "id": "seg_3",
+          "start": 13.8,
+          "end": 20.3,
+          "text": "Here is the exact method you should apply right now to 10x your organic reach without spending ad budget."
+        },
+        {
+          "id": "seg_4",
+          "start": 20.7,
+          "end": 27.2,
+          "text": "Step one: identify your audience's core frustration and address it directly in your opening line."
+        },
+        {
+          "id": "seg_5",
+          "start": 27.6,
+          "end": 33.9,
+          "text": "Step two: keep word cadence tight and pair high-value insights with dynamic caption styling."
+        },
+        {
+          "id": "seg_6",
+          "start": 34.3,
+          "end": 40.8,
+          "text": "If you follow this framework consistently, your watch time and replay frequency will compound dramatically."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_1794071255712_1",
+          "projectId": "proj_1794071255529",
+          "title": "The number one reason creators struggle with \"Ri...",
+          "startTime": 0,
+          "endTime": 27.2,
+          "duration": 27,
+          "hookScore": 79,
+          "engagementScore": 93,
+          "viralityScore": 85,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:35.712Z"
+        },
+        {
+          "id": "clip_1794071255712_2",
+          "projectId": "proj_1794071255529",
+          "title": "Step one: identify your audience's core frustrat...",
+          "startTime": 20.7,
+          "endTime": 40.8,
+          "duration": 20,
+          "hookScore": 74,
+          "engagementScore": 79,
+          "viralityScore": 76,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:35.712Z"
+        }
+      ],
+      "wordTimestamps": [
+        {
+          "word": "The",
+          "start": 0,
+          "end": 0.24,
+          "confidence": 0.95
+        },
+        {
+          "word": "number",
+          "start": 0.24,
+          "end": 0.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "one",
+          "start": 0.48,
+          "end": 0.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 0.72,
+          "end": 0.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "creators",
+          "start": 0.96,
+          "end": 1.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "struggle",
+          "start": 1.2,
+          "end": 1.44,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.44,
+          "end": 1.69,
+          "confidence": 0.95
+        },
+        {
+          "word": "\"Rick",
+          "start": 1.69,
+          "end": 1.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "Astley",
+          "start": 1.93,
+          "end": 2.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "-",
+          "start": 2.17,
+          "end": 2.41,
+          "confidence": 0.95
+        },
+        {
+          "word": "Never",
+          "start": 2.41,
+          "end": 2.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "Gonna",
+          "start": 2.65,
+          "end": 2.89,
+          "confidence": 0.95
+        },
+        {
+          "word": "Give",
+          "start": 2.89,
+          "end": 3.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "You",
+          "start": 3.13,
+          "end": 3.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "Up",
+          "start": 3.37,
+          "end": 3.61,
+          "confidence": 0.95
+        },
+        {
+          "word": "(Official",
+          "start": 3.61,
+          "end": 3.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "Video)",
+          "start": 3.85,
+          "end": 4.09,
+          "confidence": 0.95
+        },
+        {
+          "word": "(4K",
+          "start": 4.09,
+          "end": 4.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "Remaster)\"",
+          "start": 4.33,
+          "end": 4.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 4.57,
+          "end": 4.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "they",
+          "start": 4.81,
+          "end": 5.06,
+          "confidence": 0.95
+        },
+        {
+          "word": "optimize",
+          "start": 5.06,
+          "end": 5.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "for",
+          "start": 5.3,
+          "end": 5.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "vanity",
+          "start": 5.54,
+          "end": 5.78,
+          "confidence": 0.95
+        },
+        {
+          "word": "instead",
+          "start": 5.78,
+          "end": 6.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 6.02,
+          "end": 6.26,
+          "confidence": 0.95
+        },
+        {
+          "word": "retention.",
+          "start": 6.26,
+          "end": 6.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "When",
+          "start": 6.9,
+          "end": 7.28,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 7.28,
+          "end": 7.66,
+          "confidence": 0.95
+        },
+        {
+          "word": "look",
+          "start": 7.66,
+          "end": 8.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "at",
+          "start": 8.05,
+          "end": 8.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 8.43,
+          "end": 8.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "first",
+          "start": 8.81,
+          "end": 9.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "three",
+          "start": 9.19,
+          "end": 9.58,
+          "confidence": 0.95
+        },
+        {
+          "word": "seconds",
+          "start": 9.58,
+          "end": 9.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 9.96,
+          "end": 10.34,
+          "confidence": 0.95
+        },
+        {
+          "word": "any",
+          "start": 10.34,
+          "end": 10.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-performing",
+          "start": 10.72,
+          "end": 11.11,
+          "confidence": 0.95
+        },
+        {
+          "word": "video,",
+          "start": 11.11,
+          "end": 11.49,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 11.49,
+          "end": 11.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "pattern",
+          "start": 11.87,
+          "end": 12.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "interrupt",
+          "start": 12.25,
+          "end": 12.64,
+          "confidence": 0.95
+        },
+        {
+          "word": "dictates",
+          "start": 12.64,
+          "end": 13.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "everything.",
+          "start": 13.02,
+          "end": 13.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "Here",
+          "start": 13.8,
+          "end": 14.14,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 14.14,
+          "end": 14.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 14.48,
+          "end": 14.83,
+          "confidence": 0.95
+        },
+        {
+          "word": "exact",
+          "start": 14.83,
+          "end": 15.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "method",
+          "start": 15.17,
+          "end": 15.51,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.51,
+          "end": 15.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "should",
+          "start": 15.85,
+          "end": 16.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "apply",
+          "start": 16.19,
+          "end": 16.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "right",
+          "start": 16.54,
+          "end": 16.88,
+          "confidence": 0.95
+        },
+        {
+          "word": "now",
+          "start": 16.88,
+          "end": 17.22,
+          "confidence": 0.95
+        },
+        {
+          "word": "to",
+          "start": 17.22,
+          "end": 17.56,
+          "confidence": 0.95
+        },
+        {
+          "word": "10x",
+          "start": 17.56,
+          "end": 17.91,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 17.91,
+          "end": 18.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "organic",
+          "start": 18.25,
+          "end": 18.59,
+          "confidence": 0.95
+        },
+        {
+          "word": "reach",
+          "start": 18.59,
+          "end": 18.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "without",
+          "start": 18.93,
+          "end": 19.27,
+          "confidence": 0.95
+        },
+        {
+          "word": "spending",
+          "start": 19.27,
+          "end": 19.62,
+          "confidence": 0.95
+        },
+        {
+          "word": "ad",
+          "start": 19.62,
+          "end": 19.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "budget.",
+          "start": 19.96,
+          "end": 20.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 20.7,
+          "end": 21.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "one:",
+          "start": 21.13,
+          "end": 21.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "identify",
+          "start": 21.57,
+          "end": 22,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 22,
+          "end": 22.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "audience's",
+          "start": 22.43,
+          "end": 22.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "core",
+          "start": 22.87,
+          "end": 23.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "frustration",
+          "start": 23.3,
+          "end": 23.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 23.73,
+          "end": 24.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "address",
+          "start": 24.17,
+          "end": 24.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "it",
+          "start": 24.6,
+          "end": 25.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "directly",
+          "start": 25.03,
+          "end": 25.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "in",
+          "start": 25.47,
+          "end": 25.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 25.9,
+          "end": 26.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "opening",
+          "start": 26.33,
+          "end": 26.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "line.",
+          "start": 26.77,
+          "end": 27.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 27.6,
+          "end": 28.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "two:",
+          "start": 28.05,
+          "end": 28.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "keep",
+          "start": 28.5,
+          "end": 28.95,
+          "confidence": 0.95
+        },
+        {
+          "word": "word",
+          "start": 28.95,
+          "end": 29.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "cadence",
+          "start": 29.4,
+          "end": 29.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "tight",
+          "start": 29.85,
+          "end": 30.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 30.3,
+          "end": 30.75,
+          "confidence": 0.95
+        },
+        {
+          "word": "pair",
+          "start": 30.75,
+          "end": 31.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-value",
+          "start": 31.2,
+          "end": 31.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "insights",
+          "start": 31.65,
+          "end": 32.1,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 32.1,
+          "end": 32.55,
+          "confidence": 0.95
+        },
+        {
+          "word": "dynamic",
+          "start": 32.55,
+          "end": 33,
+          "confidence": 0.95
+        },
+        {
+          "word": "caption",
+          "start": 33,
+          "end": 33.45,
+          "confidence": 0.95
+        },
+        {
+          "word": "styling.",
+          "start": 33.45,
+          "end": 33.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "If",
+          "start": 34.3,
+          "end": 34.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 34.73,
+          "end": 35.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 35.17,
+          "end": 35.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "this",
+          "start": 35.6,
+          "end": 36.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "framework",
+          "start": 36.03,
+          "end": 36.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "consistently,",
+          "start": 36.47,
+          "end": 36.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 36.9,
+          "end": 37.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "watch",
+          "start": 37.33,
+          "end": 37.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "time",
+          "start": 37.77,
+          "end": 38.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 38.2,
+          "end": 38.63,
+          "confidence": 0.95
+        },
+        {
+          "word": "replay",
+          "start": 38.63,
+          "end": 39.07,
+          "confidence": 0.95
+        },
+        {
+          "word": "frequency",
+          "start": 39.07,
+          "end": 39.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "will",
+          "start": 39.5,
+          "end": 39.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "compound",
+          "start": 39.93,
+          "end": 40.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "dramatically.",
+          "start": 40.37,
+          "end": 40.8,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "proj_1794071242962",
+      "userId": "usr_1794071168552",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+      "videoPath": "input.mp4",
+      "durationMinutes": 15,
+      "fileSizeMb": 45,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:07:22.962Z",
+      "transcript": [
+        {
+          "id": "seg_1",
+          "start": 0,
+          "end": 6.5,
+          "text": "The number one reason creators struggle with \"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\" is they optimize for vanity instead of retention."
+        },
+        {
+          "id": "seg_2",
+          "start": 6.9,
+          "end": 13.4,
+          "text": "When you look at the first three seconds of any high-performing video, the pattern interrupt dictates everything."
+        },
+        {
+          "id": "seg_3",
+          "start": 13.8,
+          "end": 20.3,
+          "text": "Here is the exact method you should apply right now to 10x your organic reach without spending ad budget."
+        },
+        {
+          "id": "seg_4",
+          "start": 20.7,
+          "end": 27.2,
+          "text": "Step one: identify your audience's core frustration and address it directly in your opening line."
+        },
+        {
+          "id": "seg_5",
+          "start": 27.6,
+          "end": 33.9,
+          "text": "Step two: keep word cadence tight and pair high-value insights with dynamic caption styling."
+        },
+        {
+          "id": "seg_6",
+          "start": 34.3,
+          "end": 40.8,
+          "text": "If you follow this framework consistently, your watch time and replay frequency will compound dramatically."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_1794071243192_1",
+          "projectId": "proj_1794071242962",
+          "title": "The number one reason creators struggle with \"Ri...",
+          "startTime": 0,
+          "endTime": 27.2,
+          "duration": 27,
+          "hookScore": 79,
+          "engagementScore": 93,
+          "viralityScore": 85,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:23.193Z"
+        },
+        {
+          "id": "clip_1794071243193_2",
+          "projectId": "proj_1794071242962",
+          "title": "Step one: identify your audience's core frustrat...",
+          "startTime": 20.7,
+          "endTime": 40.8,
+          "duration": 20,
+          "hookScore": 74,
+          "engagementScore": 79,
+          "viralityScore": 76,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:07:23.193Z"
+        }
+      ],
+      "wordTimestamps": [
+        {
+          "word": "The",
+          "start": 0,
+          "end": 0.24,
+          "confidence": 0.95
+        },
+        {
+          "word": "number",
+          "start": 0.24,
+          "end": 0.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "one",
+          "start": 0.48,
+          "end": 0.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 0.72,
+          "end": 0.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "creators",
+          "start": 0.96,
+          "end": 1.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "struggle",
+          "start": 1.2,
+          "end": 1.44,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.44,
+          "end": 1.69,
+          "confidence": 0.95
+        },
+        {
+          "word": "\"Rick",
+          "start": 1.69,
+          "end": 1.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "Astley",
+          "start": 1.93,
+          "end": 2.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "-",
+          "start": 2.17,
+          "end": 2.41,
+          "confidence": 0.95
+        },
+        {
+          "word": "Never",
+          "start": 2.41,
+          "end": 2.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "Gonna",
+          "start": 2.65,
+          "end": 2.89,
+          "confidence": 0.95
+        },
+        {
+          "word": "Give",
+          "start": 2.89,
+          "end": 3.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "You",
+          "start": 3.13,
+          "end": 3.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "Up",
+          "start": 3.37,
+          "end": 3.61,
+          "confidence": 0.95
+        },
+        {
+          "word": "(Official",
+          "start": 3.61,
+          "end": 3.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "Video)",
+          "start": 3.85,
+          "end": 4.09,
+          "confidence": 0.95
+        },
+        {
+          "word": "(4K",
+          "start": 4.09,
+          "end": 4.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "Remaster)\"",
+          "start": 4.33,
+          "end": 4.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 4.57,
+          "end": 4.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "they",
+          "start": 4.81,
+          "end": 5.06,
+          "confidence": 0.95
+        },
+        {
+          "word": "optimize",
+          "start": 5.06,
+          "end": 5.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "for",
+          "start": 5.3,
+          "end": 5.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "vanity",
+          "start": 5.54,
+          "end": 5.78,
+          "confidence": 0.95
+        },
+        {
+          "word": "instead",
+          "start": 5.78,
+          "end": 6.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 6.02,
+          "end": 6.26,
+          "confidence": 0.95
+        },
+        {
+          "word": "retention.",
+          "start": 6.26,
+          "end": 6.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "When",
+          "start": 6.9,
+          "end": 7.28,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 7.28,
+          "end": 7.66,
+          "confidence": 0.95
+        },
+        {
+          "word": "look",
+          "start": 7.66,
+          "end": 8.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "at",
+          "start": 8.05,
+          "end": 8.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 8.43,
+          "end": 8.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "first",
+          "start": 8.81,
+          "end": 9.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "three",
+          "start": 9.19,
+          "end": 9.58,
+          "confidence": 0.95
+        },
+        {
+          "word": "seconds",
+          "start": 9.58,
+          "end": 9.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 9.96,
+          "end": 10.34,
+          "confidence": 0.95
+        },
+        {
+          "word": "any",
+          "start": 10.34,
+          "end": 10.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-performing",
+          "start": 10.72,
+          "end": 11.11,
+          "confidence": 0.95
+        },
+        {
+          "word": "video,",
+          "start": 11.11,
+          "end": 11.49,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 11.49,
+          "end": 11.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "pattern",
+          "start": 11.87,
+          "end": 12.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "interrupt",
+          "start": 12.25,
+          "end": 12.64,
+          "confidence": 0.95
+        },
+        {
+          "word": "dictates",
+          "start": 12.64,
+          "end": 13.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "everything.",
+          "start": 13.02,
+          "end": 13.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "Here",
+          "start": 13.8,
+          "end": 14.14,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 14.14,
+          "end": 14.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 14.48,
+          "end": 14.83,
+          "confidence": 0.95
+        },
+        {
+          "word": "exact",
+          "start": 14.83,
+          "end": 15.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "method",
+          "start": 15.17,
+          "end": 15.51,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.51,
+          "end": 15.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "should",
+          "start": 15.85,
+          "end": 16.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "apply",
+          "start": 16.19,
+          "end": 16.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "right",
+          "start": 16.54,
+          "end": 16.88,
+          "confidence": 0.95
+        },
+        {
+          "word": "now",
+          "start": 16.88,
+          "end": 17.22,
+          "confidence": 0.95
+        },
+        {
+          "word": "to",
+          "start": 17.22,
+          "end": 17.56,
+          "confidence": 0.95
+        },
+        {
+          "word": "10x",
+          "start": 17.56,
+          "end": 17.91,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 17.91,
+          "end": 18.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "organic",
+          "start": 18.25,
+          "end": 18.59,
+          "confidence": 0.95
+        },
+        {
+          "word": "reach",
+          "start": 18.59,
+          "end": 18.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "without",
+          "start": 18.93,
+          "end": 19.27,
+          "confidence": 0.95
+        },
+        {
+          "word": "spending",
+          "start": 19.27,
+          "end": 19.62,
+          "confidence": 0.95
+        },
+        {
+          "word": "ad",
+          "start": 19.62,
+          "end": 19.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "budget.",
+          "start": 19.96,
+          "end": 20.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 20.7,
+          "end": 21.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "one:",
+          "start": 21.13,
+          "end": 21.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "identify",
+          "start": 21.57,
+          "end": 22,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 22,
+          "end": 22.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "audience's",
+          "start": 22.43,
+          "end": 22.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "core",
+          "start": 22.87,
+          "end": 23.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "frustration",
+          "start": 23.3,
+          "end": 23.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 23.73,
+          "end": 24.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "address",
+          "start": 24.17,
+          "end": 24.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "it",
+          "start": 24.6,
+          "end": 25.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "directly",
+          "start": 25.03,
+          "end": 25.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "in",
+          "start": 25.47,
+          "end": 25.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 25.9,
+          "end": 26.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "opening",
+          "start": 26.33,
+          "end": 26.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "line.",
+          "start": 26.77,
+          "end": 27.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 27.6,
+          "end": 28.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "two:",
+          "start": 28.05,
+          "end": 28.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "keep",
+          "start": 28.5,
+          "end": 28.95,
+          "confidence": 0.95
+        },
+        {
+          "word": "word",
+          "start": 28.95,
+          "end": 29.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "cadence",
+          "start": 29.4,
+          "end": 29.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "tight",
+          "start": 29.85,
+          "end": 30.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 30.3,
+          "end": 30.75,
+          "confidence": 0.95
+        },
+        {
+          "word": "pair",
+          "start": 30.75,
+          "end": 31.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-value",
+          "start": 31.2,
+          "end": 31.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "insights",
+          "start": 31.65,
+          "end": 32.1,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 32.1,
+          "end": 32.55,
+          "confidence": 0.95
+        },
+        {
+          "word": "dynamic",
+          "start": 32.55,
+          "end": 33,
+          "confidence": 0.95
+        },
+        {
+          "word": "caption",
+          "start": 33,
+          "end": 33.45,
+          "confidence": 0.95
+        },
+        {
+          "word": "styling.",
+          "start": 33.45,
+          "end": 33.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "If",
+          "start": 34.3,
+          "end": 34.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 34.73,
+          "end": 35.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 35.17,
+          "end": 35.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "this",
+          "start": 35.6,
+          "end": 36.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "framework",
+          "start": 36.03,
+          "end": 36.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "consistently,",
+          "start": 36.47,
+          "end": 36.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 36.9,
+          "end": 37.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "watch",
+          "start": 37.33,
+          "end": 37.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "time",
+          "start": 37.77,
+          "end": 38.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 38.2,
+          "end": 38.63,
+          "confidence": 0.95
+        },
+        {
+          "word": "replay",
+          "start": 38.63,
+          "end": 39.07,
+          "confidence": 0.95
+        },
+        {
+          "word": "frequency",
+          "start": 39.07,
+          "end": 39.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "will",
+          "start": 39.5,
+          "end": 39.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "compound",
+          "start": 39.93,
+          "end": 40.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "dramatically.",
+          "start": 40.37,
+          "end": 40.8,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "proj_1794071168617",
+      "userId": "usr_1794071168552",
+      "title": "Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)",
+      "videoPath": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "durationMinutes": 15,
+      "fileSizeMb": 45,
+      "sourceType": "YOUTUBE",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:06:08.617Z",
+      "transcript": [
+        {
+          "id": "seg_1",
+          "start": 0,
+          "end": 6.5,
+          "text": "The number one reason creators struggle with \"Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)\" is they optimize for vanity instead of retention."
+        },
+        {
+          "id": "seg_2",
+          "start": 6.9,
+          "end": 13.4,
+          "text": "When you look at the first three seconds of any high-performing video, the pattern interrupt dictates everything."
+        },
+        {
+          "id": "seg_3",
+          "start": 13.8,
+          "end": 20.3,
+          "text": "Here is the exact method you should apply right now to 10x your organic reach without spending ad budget."
+        },
+        {
+          "id": "seg_4",
+          "start": 20.7,
+          "end": 27.2,
+          "text": "Step one: identify your audience's core frustration and address it directly in your opening line."
+        },
+        {
+          "id": "seg_5",
+          "start": 27.6,
+          "end": 33.9,
+          "text": "Step two: keep word cadence tight and pair high-value insights with dynamic caption styling."
+        },
+        {
+          "id": "seg_6",
+          "start": 34.3,
+          "end": 40.8,
+          "text": "If you follow this framework consistently, your watch time and replay frequency will compound dramatically."
+        }
+      ],
+      "clips": [
+        {
+          "id": "clip_1794071168952_1",
+          "projectId": "proj_1794071168617",
+          "title": "The number one reason creators struggle with \"Ri...",
+          "startTime": 0,
+          "endTime": 27.2,
+          "duration": 27,
+          "hookScore": 79,
+          "engagementScore": 93,
+          "viralityScore": 85,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:06:08.952Z"
+        },
+        {
+          "id": "clip_1794071168952_2",
+          "projectId": "proj_1794071168617",
+          "title": "Step one: identify your audience's core frustrat...",
+          "startTime": 20.7,
+          "endTime": 40.8,
+          "duration": 20,
+          "hookScore": 74,
+          "engagementScore": 79,
+          "viralityScore": 76,
+          "reason": "Strong linguistic hook with 1 virality triggers detected in opening statement.",
+          "category": "Hook",
+          "captionStyle": "Word Highlight Karaoke",
+          "platform": "TikTok / Reels / Shorts",
+          "exportUrl": "#",
+          "createdAt": "2026-11-07T17:06:08.952Z"
+        }
+      ],
+      "wordTimestamps": [
+        {
+          "word": "The",
+          "start": 0,
+          "end": 0.24,
+          "confidence": 0.95
+        },
+        {
+          "word": "number",
+          "start": 0.24,
+          "end": 0.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "one",
+          "start": 0.48,
+          "end": 0.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "reason",
+          "start": 0.72,
+          "end": 0.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "creators",
+          "start": 0.96,
+          "end": 1.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "struggle",
+          "start": 1.2,
+          "end": 1.44,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 1.44,
+          "end": 1.69,
+          "confidence": 0.95
+        },
+        {
+          "word": "\"Rick",
+          "start": 1.69,
+          "end": 1.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "Astley",
+          "start": 1.93,
+          "end": 2.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "-",
+          "start": 2.17,
+          "end": 2.41,
+          "confidence": 0.95
+        },
+        {
+          "word": "Never",
+          "start": 2.41,
+          "end": 2.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "Gonna",
+          "start": 2.65,
+          "end": 2.89,
+          "confidence": 0.95
+        },
+        {
+          "word": "Give",
+          "start": 2.89,
+          "end": 3.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "You",
+          "start": 3.13,
+          "end": 3.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "Up",
+          "start": 3.37,
+          "end": 3.61,
+          "confidence": 0.95
+        },
+        {
+          "word": "(Official",
+          "start": 3.61,
+          "end": 3.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "Video)",
+          "start": 3.85,
+          "end": 4.09,
+          "confidence": 0.95
+        },
+        {
+          "word": "(4K",
+          "start": 4.09,
+          "end": 4.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "Remaster)\"",
+          "start": 4.33,
+          "end": 4.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 4.57,
+          "end": 4.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "they",
+          "start": 4.81,
+          "end": 5.06,
+          "confidence": 0.95
+        },
+        {
+          "word": "optimize",
+          "start": 5.06,
+          "end": 5.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "for",
+          "start": 5.3,
+          "end": 5.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "vanity",
+          "start": 5.54,
+          "end": 5.78,
+          "confidence": 0.95
+        },
+        {
+          "word": "instead",
+          "start": 5.78,
+          "end": 6.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 6.02,
+          "end": 6.26,
+          "confidence": 0.95
+        },
+        {
+          "word": "retention.",
+          "start": 6.26,
+          "end": 6.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "When",
+          "start": 6.9,
+          "end": 7.28,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 7.28,
+          "end": 7.66,
+          "confidence": 0.95
+        },
+        {
+          "word": "look",
+          "start": 7.66,
+          "end": 8.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "at",
+          "start": 8.05,
+          "end": 8.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 8.43,
+          "end": 8.81,
+          "confidence": 0.95
+        },
+        {
+          "word": "first",
+          "start": 8.81,
+          "end": 9.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "three",
+          "start": 9.19,
+          "end": 9.58,
+          "confidence": 0.95
+        },
+        {
+          "word": "seconds",
+          "start": 9.58,
+          "end": 9.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "of",
+          "start": 9.96,
+          "end": 10.34,
+          "confidence": 0.95
+        },
+        {
+          "word": "any",
+          "start": 10.34,
+          "end": 10.72,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-performing",
+          "start": 10.72,
+          "end": 11.11,
+          "confidence": 0.95
+        },
+        {
+          "word": "video,",
+          "start": 11.11,
+          "end": 11.49,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 11.49,
+          "end": 11.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "pattern",
+          "start": 11.87,
+          "end": 12.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "interrupt",
+          "start": 12.25,
+          "end": 12.64,
+          "confidence": 0.95
+        },
+        {
+          "word": "dictates",
+          "start": 12.64,
+          "end": 13.02,
+          "confidence": 0.95
+        },
+        {
+          "word": "everything.",
+          "start": 13.02,
+          "end": 13.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "Here",
+          "start": 13.8,
+          "end": 14.14,
+          "confidence": 0.95
+        },
+        {
+          "word": "is",
+          "start": 14.14,
+          "end": 14.48,
+          "confidence": 0.95
+        },
+        {
+          "word": "the",
+          "start": 14.48,
+          "end": 14.83,
+          "confidence": 0.95
+        },
+        {
+          "word": "exact",
+          "start": 14.83,
+          "end": 15.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "method",
+          "start": 15.17,
+          "end": 15.51,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 15.51,
+          "end": 15.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "should",
+          "start": 15.85,
+          "end": 16.19,
+          "confidence": 0.95
+        },
+        {
+          "word": "apply",
+          "start": 16.19,
+          "end": 16.54,
+          "confidence": 0.95
+        },
+        {
+          "word": "right",
+          "start": 16.54,
+          "end": 16.88,
+          "confidence": 0.95
+        },
+        {
+          "word": "now",
+          "start": 16.88,
+          "end": 17.22,
+          "confidence": 0.95
+        },
+        {
+          "word": "to",
+          "start": 17.22,
+          "end": 17.56,
+          "confidence": 0.95
+        },
+        {
+          "word": "10x",
+          "start": 17.56,
+          "end": 17.91,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 17.91,
+          "end": 18.25,
+          "confidence": 0.95
+        },
+        {
+          "word": "organic",
+          "start": 18.25,
+          "end": 18.59,
+          "confidence": 0.95
+        },
+        {
+          "word": "reach",
+          "start": 18.59,
+          "end": 18.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "without",
+          "start": 18.93,
+          "end": 19.27,
+          "confidence": 0.95
+        },
+        {
+          "word": "spending",
+          "start": 19.27,
+          "end": 19.62,
+          "confidence": 0.95
+        },
+        {
+          "word": "ad",
+          "start": 19.62,
+          "end": 19.96,
+          "confidence": 0.95
+        },
+        {
+          "word": "budget.",
+          "start": 19.96,
+          "end": 20.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 20.7,
+          "end": 21.13,
+          "confidence": 0.95
+        },
+        {
+          "word": "one:",
+          "start": 21.13,
+          "end": 21.57,
+          "confidence": 0.95
+        },
+        {
+          "word": "identify",
+          "start": 21.57,
+          "end": 22,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 22,
+          "end": 22.43,
+          "confidence": 0.95
+        },
+        {
+          "word": "audience's",
+          "start": 22.43,
+          "end": 22.87,
+          "confidence": 0.95
+        },
+        {
+          "word": "core",
+          "start": 22.87,
+          "end": 23.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "frustration",
+          "start": 23.3,
+          "end": 23.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 23.73,
+          "end": 24.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "address",
+          "start": 24.17,
+          "end": 24.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "it",
+          "start": 24.6,
+          "end": 25.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "directly",
+          "start": 25.03,
+          "end": 25.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "in",
+          "start": 25.47,
+          "end": 25.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 25.9,
+          "end": 26.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "opening",
+          "start": 26.33,
+          "end": 26.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "line.",
+          "start": 26.77,
+          "end": 27.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "Step",
+          "start": 27.6,
+          "end": 28.05,
+          "confidence": 0.95
+        },
+        {
+          "word": "two:",
+          "start": 28.05,
+          "end": 28.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "keep",
+          "start": 28.5,
+          "end": 28.95,
+          "confidence": 0.95
+        },
+        {
+          "word": "word",
+          "start": 28.95,
+          "end": 29.4,
+          "confidence": 0.95
+        },
+        {
+          "word": "cadence",
+          "start": 29.4,
+          "end": 29.85,
+          "confidence": 0.95
+        },
+        {
+          "word": "tight",
+          "start": 29.85,
+          "end": 30.3,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 30.3,
+          "end": 30.75,
+          "confidence": 0.95
+        },
+        {
+          "word": "pair",
+          "start": 30.75,
+          "end": 31.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "high-value",
+          "start": 31.2,
+          "end": 31.65,
+          "confidence": 0.95
+        },
+        {
+          "word": "insights",
+          "start": 31.65,
+          "end": 32.1,
+          "confidence": 0.95
+        },
+        {
+          "word": "with",
+          "start": 32.1,
+          "end": 32.55,
+          "confidence": 0.95
+        },
+        {
+          "word": "dynamic",
+          "start": 32.55,
+          "end": 33,
+          "confidence": 0.95
+        },
+        {
+          "word": "caption",
+          "start": 33,
+          "end": 33.45,
+          "confidence": 0.95
+        },
+        {
+          "word": "styling.",
+          "start": 33.45,
+          "end": 33.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "If",
+          "start": 34.3,
+          "end": 34.73,
+          "confidence": 0.95
+        },
+        {
+          "word": "you",
+          "start": 34.73,
+          "end": 35.17,
+          "confidence": 0.95
+        },
+        {
+          "word": "follow",
+          "start": 35.17,
+          "end": 35.6,
+          "confidence": 0.95
+        },
+        {
+          "word": "this",
+          "start": 35.6,
+          "end": 36.03,
+          "confidence": 0.95
+        },
+        {
+          "word": "framework",
+          "start": 36.03,
+          "end": 36.47,
+          "confidence": 0.95
+        },
+        {
+          "word": "consistently,",
+          "start": 36.47,
+          "end": 36.9,
+          "confidence": 0.95
+        },
+        {
+          "word": "your",
+          "start": 36.9,
+          "end": 37.33,
+          "confidence": 0.95
+        },
+        {
+          "word": "watch",
+          "start": 37.33,
+          "end": 37.77,
+          "confidence": 0.95
+        },
+        {
+          "word": "time",
+          "start": 37.77,
+          "end": 38.2,
+          "confidence": 0.95
+        },
+        {
+          "word": "and",
+          "start": 38.2,
+          "end": 38.63,
+          "confidence": 0.95
+        },
+        {
+          "word": "replay",
+          "start": 38.63,
+          "end": 39.07,
+          "confidence": 0.95
+        },
+        {
+          "word": "frequency",
+          "start": 39.07,
+          "end": 39.5,
+          "confidence": 0.95
+        },
+        {
+          "word": "will",
+          "start": 39.5,
+          "end": 39.93,
+          "confidence": 0.95
+        },
+        {
+          "word": "compound",
+          "start": 39.93,
+          "end": 40.37,
+          "confidence": 0.95
+        },
+        {
+          "word": "dramatically.",
+          "start": 40.37,
+          "end": 40.8,
+          "confidence": 0.95
+        }
+      ]
+    },
+    {
+      "id": "proj_persist_1794071144570",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:05:44.570Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    },
+    {
+      "id": "proj_persist_1794070995389",
+      "userId": "usr_test_1",
+      "title": "Persistence Test Project",
+      "videoPath": "uploads/test.mp4",
+      "durationMinutes": 10,
+      "fileSizeMb": 30,
+      "sourceType": "UPLOAD",
+      "status": "COMPLETED",
+      "createdAt": "2026-11-07T17:03:15.389Z",
+      "transcript": [
+        {
+          "id": "1",
+          "start": 0,
+          "end": 5,
+          "text": "Persisted transcript text"
+        }
+      ],
+      "clips": []
+    }
+  ],
+  "exports": [
+    {
+      "id": "exp_1794071309558",
+      "clipId": "clip_1794071307244_1",
+      "userId": "usr_1794071168552",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/export_1794071307266.mp4",
+      "fileSizeBytes": 283910,
+      "createdAt": "2026-11-07T17:08:29.558Z",
+      "status": "READY"
+    },
+    {
+      "id": "exp_1794071266186",
+      "clipId": "clip_1794071266007_1",
+      "userId": "usr_1794071168552",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/export_1794071266018.mp4",
+      "fileSizeBytes": 0,
+      "createdAt": "2026-11-07T17:07:46.186Z",
+      "status": "FAILED"
+    },
+    {
+      "id": "exp_1794071255887",
+      "clipId": "clip_1794071255712_1",
+      "userId": "usr_1794071168552",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/export_1794071255718.mp4",
+      "fileSizeBytes": 0,
+      "createdAt": "2026-11-07T17:07:35.887Z",
+      "status": "FAILED"
+    },
+    {
+      "id": "exp_1794071169166",
+      "clipId": "clip_1794071168952_1",
+      "userId": "usr_1794071168552",
+      "format": "MP4",
+      "resolution": "1080x1920",
+      "watermark": false,
+      "exportUrl": "/exports/export_1794071168962.mp4",
+      "fileSizeBytes": 0,
+      "createdAt": "2026-11-07T17:06:09.166Z",
+      "status": "FAILED"
+    }
+  ]
+}

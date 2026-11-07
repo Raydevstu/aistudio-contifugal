@@ -48,7 +48,7 @@ export async function executeFFmpegClipGeneration(options: ClipGenerationOptions
   const resolution = options.resolution || '1080x1920';
   const [width, height] = resolution.split('x');
   const watermarkText = options.watermark ? "drawtext=text='ContentForge.ai':fontcolor=white@0.6:fontsize=36:x=w-tw-40:y=h-th-40" : '';
-  const safeTitle = (options.title || 'Viral Short').replace(/'/g, "\\'");
+  const safeTitle = (options.title || 'Viral Short').replace(/['"\\:%;]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 50) || 'Viral Short';
 
   const exportsDir = path.resolve('public/exports');
   if (!fs.existsSync(exportsDir)) {
