@@ -31,6 +31,15 @@ export function generateToken(user: { id: string; email: string; plan: string })
   );
 }
 
+export function verifyToken(token: string): { userId: string; email: string; plan?: string } | null {
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    return { userId: decoded.id, email: decoded.email, plan: decoded.plan };
+  } catch {
+    return null;
+  }
+}
+
 export function authenticateToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : undefined;

@@ -61,6 +61,13 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 // Express JSON body parser
 app.use(express.json({ limit: '500mb' }));
 
+// Prometheus HTTP Request Counter
+let httpRequestsTotal = 0;
+app.use((req, res, next) => {
+  httpRequestsTotal++;
+  next();
+});
+
 // Stripe Client Setup (Epic 8)
 const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_51MockStripeKeyForContentForgeProductionEnvironment2026';
 const stripe = new Stripe(stripeKey, { apiVersion: '2025-02-24.acacia' as any });
@@ -643,7 +650,32 @@ app.post('/api/stripe/webhook', (req, res) => {
 // ============================================================================
 app.get('/api/metrics', (req, res) => {
   const liveMetrics = dbStorage.getMetrics();
+  const accept = req.headers.accept || '';
+
+  if (accept.includes('text/plain') || req.query.format === 'prometheus') {
+    res.setHeader('Content-Type', 'text/plain; version=0.0.4');
+    return res.send(
+`# HELP http_requests_total Total number of HTTP requests handled
+# TYPE http_requests_total counter
+http_requests_total ${httpRequestsTotal}
+
+# HELP contentforge_total_users Total registered users in database
+# TYPE contentforge_total_users gauge
+contentforge_total_users ${liveMetrics.totalUsers}
+
+# HELP contentforge_active_projects Total projects active
+# TYPE contentforge_active_projects gauge
+contentforge_active_projects ${liveMetrics.totalProjects}
+
+# HELP contentforge_mrr_dollars Monthly Recurring Revenue in USD
+# TYPE contentforge_mrr_dollars gauge
+contentforge_mrr_dollars ${liveMetrics.mrr}
+`
+    );
+  }
+
   res.json({
+    http_requests_total: httpRequestsTotal,
     mrr: liveMetrics.mrr,
     totalUsers: liveMetrics.totalUsers,
     activeProjects: liveMetrics.totalProjects,

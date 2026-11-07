@@ -89,7 +89,7 @@ export interface DatabaseSchema {
 const DB_DIR = path.resolve('data');
 const DB_FILE = path.join(DB_DIR, 'contentforge.db.json');
 
-class DatabaseManager {
+export class DatabaseManager {
   private data: DatabaseSchema = {
     users: [],
     projects: [],

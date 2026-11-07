@@ -333,8 +333,8 @@ Respond STRICTLY with JSON matching this structure:
 
   // Window segmentation: group segments into 15s - 45s blocks
   let windowStart = 0;
-  for (let i = 0; i < transcript.length; i += 3) {
-    const chunk = transcript.slice(i, i + 4);
+  for (let i = 0; i < transcript.length; i += 2) {
+    const chunk = transcript.slice(i, i + 3);
     if (chunk.length === 0) break;
 
     const startTime = chunk[0].start;
